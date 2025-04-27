@@ -167,22 +167,27 @@ section {
 .nav-menu {
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 1001; /* Ensure it's above other elements */
+    position: relative !important;
+    z-index: 9999 !important; /* Extremely high z-index */
+    pointer-events: auto !important;
 }
 
 .nav-menu li {
     margin-left: 30px;
-    position: relative;
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
 }
 
 .nav-menu a {
     color: var(--text-color);
     font-weight: 500;
-    display: inline-block; /* Make sure the entire area is clickable */
-    padding: 5px 0; /* Add some padding to increase clickable area */
-    position: relative;
-    z-index: 1001; /* Ensure it's above other elements */
+    display: inline-block !important; /* Make sure the entire area is clickable */
+    padding: 10px !important; /* Increased padding for larger clickable area */
+    position: relative !important;
+    z-index: 9999 !important; /* Extremely high z-index */
+    pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -192,10 +197,12 @@ section {
 .nav-cta {
     background-color: var(--primary-color);
     color: var(--white) !important;
-    padding: 8px 16px;
+    padding: 8px 16px !important;
     border-radius: var(--border-radius);
-    position: relative;
-    z-index: 1001;
+    position: relative !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
 }
 
 .nav-cta:hover {
