@@ -167,27 +167,21 @@ section {
 .nav-menu {
     display: flex;
     align-items: center;
-    position: relative !important;
-    z-index: 9999 !important; /* Extremely high z-index */
-    pointer-events: auto !important;
+    position: relative;
+    z-index: 100;
 }
 
 .nav-menu li {
     margin-left: 30px;
-    position: relative !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
+    position: relative;
 }
 
 .nav-menu a {
     color: var(--text-color);
     font-weight: 500;
-    display: inline-block !important; /* Make sure the entire area is clickable */
-    padding: 10px !important; /* Increased padding for larger clickable area */
-    position: relative !important;
-    z-index: 9999 !important; /* Extremely high z-index */
-    pointer-events: auto !important;
-    cursor: pointer !important;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -197,12 +191,9 @@ section {
 .nav-cta {
     background-color: var(--primary-color);
     color: var(--white) !important;
-    padding: 8px 16px !important;
+    padding: 8px 16px;
     border-radius: var(--border-radius);
-    position: relative !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
-    cursor: pointer !important;
+    position: relative;
 }
 
 .nav-cta:hover {
