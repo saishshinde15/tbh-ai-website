@@ -2,27 +2,36 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (mobileMenu) {
         mobileMenu.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
     }
-    
-    // Close mobile menu when clicking on a nav link
+
+    // Make sure all navigation links are clickable
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            navMenu.classList.remove('active');
+        // Ensure links are clickable by adding a click event listener
+        link.addEventListener('click', (e) => {
+            // Only for mobile menu
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+
+            // If it's not an anchor link, allow normal navigation
+            if (!link.getAttribute('href').startsWith('#')) {
+                return true;
+            }
         });
     });
-    
+
     // Add active class to current page nav link
     const currentLocation = window.location.pathname;
     const navItems = document.querySelectorAll('.nav-menu a');
-    
+
     navItems.forEach(item => {
         const navItemPath = item.getAttribute('href');
         if (currentLocation.includes(navItemPath) && navItemPath !== 'index.html') {
@@ -31,15 +40,15 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.add('active');
         }
     });
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
@@ -49,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -60,5 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.padding = '15px 0';
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
         }
+    });
+
+    // Fix for navigation links not being clickable
+    document.querySelectorAll('.nav-menu li a').forEach(link => {
+        link.style.pointerEvents = 'auto';
     });
 });

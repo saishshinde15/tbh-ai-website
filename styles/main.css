@@ -29,6 +29,7 @@ body {
     color: var(--text-color);
     background-color: var(--white);
     padding-top: 70px; /* Add padding to account for fixed navbar */
+    position: relative;
 }
 
 .container {
@@ -138,6 +139,8 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1000;
 }
 
 .logo {
@@ -164,15 +167,22 @@ section {
 .nav-menu {
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1001; /* Ensure it's above other elements */
 }
 
 .nav-menu li {
     margin-left: 30px;
+    position: relative;
 }
 
 .nav-menu a {
     color: var(--text-color);
     font-weight: 500;
+    display: inline-block; /* Make sure the entire area is clickable */
+    padding: 5px 0; /* Add some padding to increase clickable area */
+    position: relative;
+    z-index: 1001; /* Ensure it's above other elements */
 }
 
 .nav-menu a:hover, .nav-menu a.active {
@@ -184,6 +194,8 @@ section {
     color: var(--white) !important;
     padding: 8px 16px;
     border-radius: var(--border-radius);
+    position: relative;
+    z-index: 1001;
 }
 
 .nav-cta:hover {
@@ -208,6 +220,8 @@ section {
 .hero {
     padding: 160px 0 80px;
     background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+    position: relative;
+    z-index: 1; /* Lower than navbar */
 }
 
 .hero .container {
