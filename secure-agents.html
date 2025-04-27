@@ -262,9 +262,10 @@
                 <div class="framework-content">
                     <div class="framework-info">
                         <h2>Secure by Design</h2>
-                        <p><strong>TBH.AI Secure Agents</strong> is our main product and a comprehensive framework for building multi-agent systems with security at their core. Our approach ensures that every agent interaction is validated, monitored, and secured against potential threats.</p>
+                        <p><strong>TBH.AI Secure Agents</strong> is our main product and a comprehensive framework for building multi-agent systems with security at their core. Our approach ensures that every expert interaction is validated, monitored, and secured against potential threats.</p>
                         <p>Unlike traditional multi-agent frameworks that add security as an afterthought, our framework integrates security principles from the ground up, making it ideal for applications where security and reliability are paramount.</p>
-                        <p>The framework provides a structured approach to creating agents that can work together securely, with built-in protections against common vulnerabilities and attack vectors in AI systems.</p>
+                        <p>The framework implements a defense-in-depth approach with eight security checkpoints throughout the execution flow, addressing critical challenges like agent hijacking, data leakage, multi-agent exploitation, and reliability concerns.</p>
+                        <p>With our security-first design philosophy, you can build AI systems that are not only powerful but also trustworthy and resilient against emerging threats.</p>
                     </div>
                     <div class="framework-image">
                         <img src="public/images/secure-agents.svg" alt="Secure Agents Framework">
@@ -280,6 +281,79 @@
                     <h2>Key Features</h2>
                     <p>What makes our secure agent framework stand out</p>
                 </div>
+                <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
+                    <h3>Core Security Challenges Addressed</h3>
+                    <p>Our framework tackles four critical security challenges in multi-agent systems</p>
+                </div>
+
+                <div class="features-container">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Agent Hijacking & Unauthorized Control</h3>
+                        <p>Preventing malicious prompts from taking control of agents or making them perform unauthorized actions.</p>
+                        <div class="feature-list">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Prompt sanitization and validation</li>
+                                <li><i class="fas fa-check-circle"></i> Role-based access control</li>
+                                <li><i class="fas fa-check-circle"></i> Instruction boundaries enforcement</li>
+                                <li><i class="fas fa-check-circle"></i> Pattern detection for hijacking attempts</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Data Leakage & Confidentiality</h3>
+                        <p>Protecting sensitive information from being inadvertently exposed through the system.</p>
+                        <div class="feature-list">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Output scanning for PII and sensitive data</li>
+                                <li><i class="fas fa-check-circle"></i> Context passing security validation</li>
+                                <li><i class="fas fa-check-circle"></i> Confidential information detection</li>
+                                <li><i class="fas fa-check-circle"></i> Security profile-based data handling</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Multi-Agent Exploitation & Orchestration Risks</h3>
+                        <p>Preventing the interaction between multiple agents from being manipulated to achieve malicious goals.</p>
+                        <div class="feature-list">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Squad security validation</li>
+                                <li><i class="fas fa-check-circle"></i> Agent-task matching verification</li>
+                                <li><i class="fas fa-check-circle"></i> Operation security validation</li>
+                                <li><i class="fas fa-check-circle"></i> Execution monitoring and metrics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h3>Reliability and Unpredictability</h3>
+                        <p>Ensuring that LLMs produce consistent, reliable outputs without hallucinations or misleading information.</p>
+                        <div class="feature-list">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Output validation for hallucination indicators</li>
+                                <li><i class="fas fa-check-circle"></i> Relevance checking against operation instructions</li>
+                                <li><i class="fas fa-check-circle"></i> Format compliance verification</li>
+                                <li><i class="fas fa-check-circle"></i> Execution metrics analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-top: 60px; margin-bottom: 30px;">
+                    <h3>Key Framework Features</h3>
+                    <p>What makes our secure agent framework stand out</p>
+                </div>
+
                 <div class="features-container">
                     <div class="feature-box">
                         <div class="feature-icon">
@@ -289,10 +363,10 @@
                         <p>Security is built into every aspect of the framework, not added as an afterthought.</p>
                         <div class="feature-list">
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Input validation and sanitization</li>
-                                <li><i class="fas fa-check-circle"></i> Secure communication channels</li>
-                                <li><i class="fas fa-check-circle"></i> Permission-based access control</li>
-                                <li><i class="fas fa-check-circle"></i> Output verification and filtering</li>
+                                <li><i class="fas fa-check-circle"></i> Eight security checkpoints throughout execution</li>
+                                <li><i class="fas fa-check-circle"></i> Defense in depth architecture</li>
+                                <li><i class="fas fa-check-circle"></i> Secure defaults for all components</li>
+                                <li><i class="fas fa-check-circle"></i> Comprehensive security logging</li>
                             </ul>
                         </div>
                     </div>
@@ -304,9 +378,9 @@
                         <p>Create specialized agents with clearly defined roles and security boundaries.</p>
                         <div class="feature-list">
                             <ul>
+                                <li><i class="fas fa-check-circle"></i> Security profile-based capabilities</li>
                                 <li><i class="fas fa-check-circle"></i> Role-based agent templates</li>
-                                <li><i class="fas fa-check-circle"></i> Customizable security profiles</li>
-                                <li><i class="fas fa-check-circle"></i> Capability-based design</li>
+                                <li><i class="fas fa-check-circle"></i> Specialty-specific validation</li>
                                 <li><i class="fas fa-check-circle"></i> Isolation between agent functions</li>
                             </ul>
                         </div>
@@ -319,10 +393,10 @@
                         <p>Define complex workflows with security checkpoints at every stage.</p>
                         <div class="feature-list">
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Secure task definition</li>
-                                <li><i class="fas fa-check-circle"></i> Validation between task steps</li>
+                                <li><i class="fas fa-check-circle"></i> Pre-execution security validation</li>
+                                <li><i class="fas fa-check-circle"></i> Post-execution result verification</li>
                                 <li><i class="fas fa-check-circle"></i> Audit logging of task execution</li>
-                                <li><i class="fas fa-check-circle"></i> Rollback capabilities for failed tasks</li>
+                                <li><i class="fas fa-check-circle"></i> Secure context passing between tasks</li>
                             </ul>
                         </div>
                     </div>
@@ -334,10 +408,10 @@
                         <p>Protected channels for inter-agent messaging and data exchange.</p>
                         <div class="feature-list">
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Encrypted message passing</li>
-                                <li><i class="fas fa-check-circle"></i> Message authentication</li>
-                                <li><i class="fas fa-check-circle"></i> Content validation</li>
-                                <li><i class="fas fa-check-circle"></i> Rate limiting and flood protection</li>
+                                <li><i class="fas fa-check-circle"></i> Validated message passing</li>
+                                <li><i class="fas fa-check-circle"></i> Content security scanning</li>
+                                <li><i class="fas fa-check-circle"></i> Permission-based communication</li>
+                                <li><i class="fas fa-check-circle"></i> Audit trail for all exchanges</li>
                             </ul>
                         </div>
                     </div>
@@ -358,60 +432,67 @@
                 </div>
 
                 <div class="example-description">
-                    <h3>Basic Agent Setup</h3>
-                    <p>Creating secure agents with specific roles and security contexts</p>
+                    <h3>Basic Expert Setup</h3>
+                    <p>Creating secure experts with specific specialties and security profiles</p>
                 </div>
                 <div class="code-block">
                     <pre><span class="comment"># Example Usage (Conceptual) - See docs/usage_guide.md for details</span>
-<span class="keyword">from</span> tbh_secure_agents <span class="keyword">import</span> Agent, Task, Crew
+<span class="keyword">from</span> tbh_secure_agents <span class="keyword">import</span> Expert, Operation, Squad
 
-<span class="comment"># Define agents with specific roles and security contexts</span>
-security_researcher = Agent(
-    role=<span class="string">'Security Researcher'</span>,
-    goal=<span class="string">'Identify vulnerabilities'</span>,
+<span class="comment"># Define experts with specific specialties and security profiles</span>
+security_researcher = Expert(
+    specialty=<span class="string">'Security Researcher'</span>,
+    objective=<span class="string">'Identify vulnerabilities'</span>,
     security_profile=<span class="string">'high'</span>
 )
 
-reporting_agent = Agent(
-    role=<span class="string">'Reporter'</span>,
-    goal=<span class="string">'Summarize findings securely'</span>,
+reporting_expert = Expert(
+    specialty=<span class="string">'Reporter'</span>,
+    objective=<span class="string">'Summarize findings securely'</span>,
     security_profile=<span class="string">'medium'</span>
 )</pre>
                 </div>
 
                 <div class="example-description">
-                    <h3>Creating Secure Tasks</h3>
-                    <p>Defining tasks with security validation at each step</p>
+                    <h3>Creating Secure Operations</h3>
+                    <p>Defining operations with security validation at each step</p>
                 </div>
                 <div class="code-block">
-                    <pre><span class="comment"># Define tasks</span>
-research_task = Task(
-    description=<span class="string">'Analyze system X for security flaws'</span>,
-    agent=security_researcher
+                    <pre><span class="comment"># Define operations with security checkpoints</span>
+research_operation = Operation(
+    instructions=<span class="string">'Analyze system X for security flaws'</span>,
+    expert=security_researcher,
+    security_level=<span class="string">'high'</span>
 )
 
-reporting_task = Task(
-    description=<span class="string">'Compile a secure report of findings'</span>,
-    agent=reporting_agent
+reporting_operation = Operation(
+    instructions=<span class="string">'Compile a secure report of findings'</span>,
+    expert=reporting_expert,
+    security_level=<span class="string">'medium'</span>
 )</pre>
                 </div>
 
                 <div class="example-description">
-                    <h3>Running a Secure Agent Crew</h3>
-                    <p>Orchestrating multiple agents to work together securely</p>
+                    <h3>Running a Secure Expert Squad</h3>
+                    <p>Orchestrating multiple experts to work together securely</p>
                 </div>
                 <div class="code-block">
-                    <pre><span class="comment"># Form a crew</span>
-security_crew = Crew(
-    agents=[security_researcher, reporting_agent],
-    tasks=[research_task, reporting_task],
-    verbose=<span class="keyword">True</span> <span class="comment"># Or configure security logging</span>
+                    <pre><span class="comment"># Form a squad with security validation</span>
+security_squad = Squad(
+    experts=[security_researcher, reporting_expert],
+    operations=[research_operation, reporting_operation],
+    security_config={
+        <span class="string">'validate_squad_security'</span>: <span class="keyword">True</span>,
+        <span class="string">'validate_operation_security'</span>: <span class="keyword">True</span>,
+        <span class="string">'audit_results'</span>: <span class="keyword">True</span>
+    },
+    verbose=<span class="keyword">True</span>
 )
 
-<span class="comment"># Kick off the process</span>
-result = security_crew.kickoff()
+<span class="comment"># Deploy the squad with security monitoring</span>
+result = security_squad.deploy()
 
-<span class="comment"># Securely handled output</span>
+<span class="comment"># Securely handled and validated output</span>
 print(result)</pre>
                 </div>
 
