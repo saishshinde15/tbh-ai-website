@@ -130,7 +130,7 @@
         <section class="contact-form-section">
             <div class="container">
                 <div class="contact-form-container">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formsubmit.co/saish.shinde.jb@gmail.com" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -151,6 +151,11 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
+                        <!-- FormSubmit configuration -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - tbh.ai">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="http://www.tbhai.co.in/thank-you.html">
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
 
@@ -256,41 +261,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/direct-nav.js"></script>
-    <script>
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Create email body
-            const emailBody = `
-Name: ${name}
-Email: ${email}
-Company: ${company}
-Subject: ${subject}
-
-Message:
-${message}
-            `;
-
-            // Create mailto link
-            const mailtoLink = `mailto:saish.shinde.jb@gmail.com?subject=Contact from ${name} - tbh.ai website&body=${encodeURIComponent(emailBody)}`;
-
-            // Show confirmation message
-            alert('Thank you for your message! Your default email client will open to send the message. If it doesn\'t open automatically, please email us directly at saish.shinde.jb@gmail.com');
-
-            // Open mailto link
-            window.location.href = mailtoLink;
-
-            // Reset form
-            this.reset();
-        });
-    </script>
+    <!-- No custom JavaScript needed for form submission as FormSubmit.co handles it -->
 </body>
 </html>

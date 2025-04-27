@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - tbh.ai</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/page-headers.css">
+    <style>
+        /* Thank You Page Specific Styles */
+        .thank-you-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .thank-you-message {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .thank-you-cta {
+            margin-top: 30px;
+        }
+
+        .thank-you-section {
+            padding: 80px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
+                        <span class="logo-text">tbh.ai</span>
+                    </a>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="models.html">Models</a></li>
+                    <li><a href="secure-agents.html">Secure Agents</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Thank You Section -->
+        <section class="thank-you-section">
+            <div class="container">
+                <div class="thank-you-container">
+                    <div class="thank-you-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1 class="thank-you-title">Thank You!</h1>
+                    <p class="thank-you-message">
+                        Your message has been sent successfully. We appreciate you contacting tbh.ai. 
+                        One of our team members will get back to you shortly.
+                    </p>
+                    <div class="thank-you-cta">
+                        <a href="index.html" class="btn btn-primary">Return to Home</a>
+                        <a href="products.html" class="btn btn-secondary">Explore Our Products</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
+                    <span class="logo-text">tbh.ai</span>
+                    <p>Securing the AI Revolution</p>
+                    <div class="social-links">
+                        <a href="https://github.com/saishshinde15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace"><i class="fas fa-robot"></i></a>
+                        <a href="https://linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:saish.shinde.jb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="secure-agents.html">Secure Agents</a></li>
+                            <li><a href="products.html#current-models">Current Models</a></li>
+                            <li><a href="models.html">Security Models</a></li>
+                            <li><a href="products.html#ai-guard">AI Guard</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" target="_blank">GitHub Repository</a></li>
+                            <li><a href="https://huggingface.co/TBHAI" target="_blank">HuggingFace Models</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 tbh.ai. All rights reserved.</p>
+                <p class="footer-tagline">Building secure AI for a safer future</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/direct-nav.js"></script>
+</body>
+</html>
