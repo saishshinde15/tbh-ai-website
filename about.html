@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - tbh.ai</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/page-headers.css">
+    <style>
+        /* About Page Specific Styles */
+        /* About page specific styles */
+
+        .company-overview {
+            padding: 80px 0;
+        }
+
+        .overview-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .overview-info {
+            flex: 1;
+        }
+
+        .overview-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .overview-info p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .overview-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .overview-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .our-mission {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+
+        .mission-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .mission-statement-box {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .mission-statement {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .mission-details {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .mission-details p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .core-values {
+            padding: 80px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .value-card p {
+            color: var(--text-light);
+        }
+
+        .our-expertise {
+            background-color: var(--light-color);
+            padding: 80px 0;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .expertise-area {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .expertise-area:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .expertise-area h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .expertise-area p {
+            color: var(--text-light);
+        }
+
+        .our-approach {
+            padding: 80px 0;
+        }
+
+        .approach-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .approach-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .approach-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .approach-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .approach-item p {
+            color: var(--text-light);
+        }
+
+        @media (max-width: 992px) {
+            .overview-content {
+                flex-direction: column;
+            }
+
+            .overview-info {
+                order: 2;
+            }
+
+            .overview-image {
+                order: 1;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
+                        <span class="logo-text">tbh.ai</span>
+                    </a>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="models.html">Models</a></li>
+                    <li><a href="secure-agents.html">Secure Agents</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Hero Section -->
+        <section class="page-header">
+            <div class="container">
+                <h1>About tbh.ai</h1>
+                <p>Pioneering the future of secure AI systems</p>
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span class="separator">/</span>
+                    <span class="current">About</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Overview Section -->
+        <section class="company-overview">
+            <div class="container">
+                <div class="overview-content">
+                    <div class="overview-info">
+                        <h2>Leading the AI Security Revolution</h2>
+                        <p>
+                            tbh.ai is at the forefront of developing secure, trustworthy AI systems for enterprise and research applications. We combine cutting-edge research with practical implementation to create AI security solutions that address the complex challenges of today's rapidly evolving threat landscape.
+                        </p>
+                        <p>
+                            Our team brings together expertise in machine learning, cybersecurity, and software engineering to create comprehensive security frameworks that protect AI systems at every level—from model architecture to deployment infrastructure.
+                        </p>
+                        <p>
+                            With a growing portfolio of security-focused AI models on HuggingFace and open-source frameworks on GitHub, we're committed to advancing the field of AI security through innovation, collaboration, and education.
+                        </p>
+                    </div>
+                    <div class="overview-image">
+                        <img src="public/images/mission.svg" alt="Our Mission">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="our-mission">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Mission</h2>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-statement-box">
+                        <p class="mission-statement">
+                            "Secure this AI revolution by embedding security, trust, and resilience into every layer of AI systems — from models to agents to applications."
+                        </p>
+                    </div>
+                    <div class="mission-details">
+                        <p>
+                            At tbh.ai, we are on a mission to build secure, scalable, and trustworthy AI systems for a rapidly evolving world. In an age where AI adoption is accelerating, security can no longer be an afterthought — it must be foundational.
+                        </p>
+                        <p>
+                            We aim to enable organizations and developers to build not just powerful AI, but safe, ethical, and reliable AI — ready for the real-world challenges ahead.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="core-values">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Core Values</h2>
+                    <p>The principles that guide our innovation and development</p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Security by Design</h3>
+                        <p>We integrate security principles from the earliest stages of development, ensuring that security is not an add-on but a fundamental aspect of our AI systems.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h3>Open Collaboration</h3>
+                        <p>We believe in transparency and collaboration, which is why we maintain open-source frameworks and contribute to the global AI security community.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Research Excellence</h3>
+                        <p>Our solutions are grounded in cutting-edge research, rigorous testing, and continuous innovation to stay ahead of emerging threats.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Client Partnership</h3>
+                        <p>We work closely with our clients to understand their unique security challenges and develop tailored solutions that meet their specific needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Expertise Section -->
+        <section class="our-expertise">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Expertise</h2>
+                    <p>Comprehensive capabilities in AI security</p>
+                </div>
+                <div class="expertise-grid">
+                    <div class="expertise-area">
+                        <div class="expertise-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Secure LLM Development</h3>
+                        <p>We develop and fine-tune large language models with built-in security features to resist common attacks like prompt injections and context manipulation.</p>
+                    </div>
+                    <div class="expertise-area">
+                        <div class="expertise-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Multi-Agent Security</h3>
+                        <p>Our frameworks enable the creation of secure multi-agent systems with robust security checkpoints, permission profiles, and secure communication channels.</p>
+                    </div>
+                    <div class="expertise-area">
+                        <div class="expertise-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h3>AI Vulnerability Assessment</h3>
+                        <p>We provide comprehensive vulnerability assessments for AI systems, identifying and mitigating potential security risks before they can be exploited.</p>
+                    </div>
+                    <div class="expertise-area">
+                        <div class="expertise-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Security Research</h3>
+                        <p>Our team conducts ongoing research into emerging AI security threats and develops innovative solutions to address them.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach Section -->
+        <section class="our-approach">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Methodology</h2>
+                    <p>A systematic approach to securing AI systems</p>
+                </div>
+                <div class="approach-content">
+                    <div class="approach-item">
+                        <h3>1. Comprehensive Threat Modeling</h3>
+                        <p>We begin by identifying potential threats and vulnerabilities specific to AI systems, from prompt injections to model poisoning, creating a detailed threat landscape.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>2. Layered Defense Architecture</h3>
+                        <p>Our security approach implements multiple layers of protection, ensuring that if one layer is compromised, others remain intact to maintain system integrity.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>3. Continuous Security Validation</h3>
+                        <p>We employ rigorous testing and validation processes, including red-team exercises and penetration testing, to ensure our security measures remain effective against evolving threats.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h3>4. Ongoing Monitoring & Adaptation</h3>
+                        <p>Our solutions include continuous monitoring capabilities that detect and respond to potential security incidents in real-time, with regular updates to address new threat vectors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Secure Your AI Systems?</h2>
+                <p>Get in touch with our team to discuss how tbh.ai can help secure your AI infrastructure.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
+                    <span class="logo-text">tbh.ai</span>
+                    <p>Securing the AI Revolution</p>
+                    <div class="social-links">
+                        <a href="https://github.com/saishshinde15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace"><i class="fas fa-robot"></i></a>
+                        <a href="https://linkedin.com/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:saish.shinde.jb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="secure-agents.html">Secure Agents</a></li>
+                            <li><a href="products.html#current-models">Current Models</a></li>
+                            <li><a href="models.html">Security Models</a></li>
+                            <li><a href="products.html#ai-guard">AI Guard</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" target="_blank">GitHub Repository</a></li>
+                            <li><a href="https://huggingface.co/TBHAI" target="_blank">HuggingFace Models</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 tbh.ai. All rights reserved.</p>
+                <p class="footer-tagline">Building secure AI for a safer future</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

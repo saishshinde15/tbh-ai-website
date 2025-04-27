@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Models - tbh.ai</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/page-headers.css">
+    <style>
+        /* Models Page Specific Styles */
+
+        /* Add spacing between sections */
+        .models-section {
+            padding-top: 60px;
+        }
+        .models-disclaimer-section {
+            padding: 40px 0 20px;
+            background-color: #f5f7fa;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .model-disclaimer {
+            background-color: rgba(0, 82, 204, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px 25px;
+            margin-bottom: 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .model-disclaimer p {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .model-card-detailed {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .model-card-detailed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .model-title h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .model-badge {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .model-description {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .model-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+
+        .model-spec {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .model-spec-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .model-spec-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .model-security-features {
+            margin-bottom: 20px;
+        }
+
+        .model-security-features h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .security-features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .security-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .security-feature i {
+            color: var(--success);
+            margin-top: 3px;
+        }
+
+        .security-feature-content {
+            flex: 1;
+        }
+
+        .security-feature-content h5 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .security-feature-content p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .model-actions {
+            display: flex;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
+                        <span class="logo-text">tbh.ai</span>
+                    </a>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="models.html" class="active">Models</a></li>
+                    <li><a href="secure-agents.html">Secure Agents</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Models Hero Section -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our AI Models</h1>
+                <p>Security-focused language models available on HuggingFace</p>
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a>
+                    <span class="separator">/</span>
+                    <span class="current">Models</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Disclaimer -->
+        <section class="models-disclaimer-section">
+            <div class="container">
+                <div class="model-disclaimer">
+                    <p><strong>Disclaimer:</strong> All security features in our current models have been implemented and tested on a small scale using internal security datasets. These models represent our ongoing research and development in AI security.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Section -->
+        <section class="models-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Available Models</h2>
+                    <p>Our current lineup of AI models with security features</p>
+                </div>
+                <!-- Model 1: TBH.AI Vortex Reasoning -->
+                <div class="model-card-detailed">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3>TBH.AI Vortex Reasoning</h3>
+                            <p>Experimental reasoning model with SFT approach</p>
+                        </div>
+                        <span class="model-badge">Featured</span>
+                    </div>
+                    <div class="model-description">
+                        <p>TBH.AI Vortex Reasoning is an experimental model that advances structured reasoning capabilities without using Generalized Reinforced Policy Optimization (GRPO). Instead, it relies on high-end Supervised Fine-Tuning (SFT) techniques to achieve similar self-reflective thought processes, proving that structured reasoning can be induced through high-quality SFT alone.</p>
+                    </div>
+                    <div class="model-specs">
+                        <div class="model-spec">
+                            <span class="model-spec-label">Model Type</span>
+                            <span class="model-spec-value">Language Model</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Parameters</span>
+                            <span class="model-spec-value">3.09B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Base Model</span>
+                            <span class="model-spec-value">Qwen2.5-3B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">License</span>
+                            <span class="model-spec-value">Apache-2.0</span>
+                        </div>
+                    </div>
+                    <div class="model-security-features">
+                        <h4>Key Features</h4>
+                        <div class="security-features-list">
+                            <div class="security-feature">
+                                <i class="fas fa-brain"></i>
+                                <div class="security-feature-content">
+                                    <h5>Self-Questioning & Iterative Thinking</h5>
+                                    <p>Actively asks itself intermediate questions before answering, mimicking deep reflection-based thought processes</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-database"></i>
+                                <div class="security-feature-content">
+                                    <h5>High-Quality SFT Dataset</h5>
+                                    <p>Trained on mathematical proofs, logical puzzles, and complex problem-solving tasks</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-code"></i>
+                                <div class="security-feature-content">
+                                    <h5>Implicit Reasoning Markers</h5>
+                                    <p>Uses special reasoning markers to structure responses for consistent and methodical answers</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="security-feature-content">
+                                    <h5>Security Implementation</h5>
+                                    <p>Security features implemented on a small scale using internal security datasets</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-actions">
+                        <a href="https://huggingface.co/saishshinde15/TBH.AI_Vortex_Reasoning" class="btn btn-primary" target="_blank">View on HuggingFace</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- Model 2: TBH.AI Valhala -->
+                <div class="model-card-detailed">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3>TBH.AI Valhalla</h3>
+                            <p>Specialized model for knowledge synthesis</p>
+                        </div>
+                        <span class="model-badge">New</span>
+                    </div>
+                    <div class="model-description">
+                        <p>TBH.AI Valhalla is a highly optimized reasoning model built upon TBH.AI Base Reasoning, further refined with high-quality, curated datasets to enhance reasoning and structured response generation. This model belongs to the Vortex Family, a suite of fine-tuned models tailored for advanced knowledge synthesis and decision-making. Security features are implemented on a small scale using internal security datasets.</p>
+                    </div>
+                    <div class="model-specs">
+                        <div class="model-spec">
+                            <span class="model-spec-label">Model Type</span>
+                            <span class="model-spec-value">Language Model</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Parameters</span>
+                            <span class="model-spec-value">3.09B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Base Model</span>
+                            <span class="model-spec-value">Qwen2.5-3B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">License</span>
+                            <span class="model-spec-value">Apache-2.0</span>
+                        </div>
+                    </div>
+                    <div class="model-security-features">
+                        <h4>Key Features</h4>
+                        <div class="security-features-list">
+                            <div class="security-feature">
+                                <i class="fas fa-brain"></i>
+                                <div class="security-feature-content">
+                                    <h5>Superior Knowledge & Reasoning</h5>
+                                    <p>Incorporates higher-quality training data to improve logical consistency and factual accuracy</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-project-diagram"></i>
+                                <div class="security-feature-content">
+                                    <h5>Enhanced Response Coherence</h5>
+                                    <p>Provides structured, well-reasoned, and contextually relevant answers across various domains</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-cogs"></i>
+                                <div class="security-feature-content">
+                                    <h5>Optimized for Complex Queries</h5>
+                                    <p>Excels in multi-step logical deductions, research synthesis, and structured decision-making</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="security-feature-content">
+                                    <h5>Security Implementation</h5>
+                                    <p>Security features implemented on a small scale using internal security datasets</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-actions">
+                        <a href="https://huggingface.co/saishshinde15/TBH.AI_Valhala" class="btn btn-primary" target="_blank">View on HuggingFace</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- Robust Security Model (Coming Soon) -->
+                <div class="model-card-detailed">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3>TBH.AI Robust Security Model</h3>
+                            <p>Advanced security-focused model with comprehensive protection</p>
+                        </div>
+                        <span class="model-badge">Beta</span>
+                    </div>
+                    <div class="model-description">
+                        <p>Our upcoming Robust Security Model is currently in beta stage of development. This model is specifically designed to address the most challenging security concerns in AI systems, with advanced protection mechanisms against a wide range of attack vectors. Like our other models, security features are being implemented and tested on a small scale using internal security datasets.</p>
+                    </div>
+                    <div class="model-specs">
+                        <div class="model-spec">
+                            <span class="model-spec-label">Model Type</span>
+                            <span class="model-spec-value">Language Model</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Development Stage</span>
+                            <span class="model-spec-value">Beta</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Focus Area</span>
+                            <span class="model-spec-value">Security & Robustness</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Expected Release</span>
+                            <span class="model-spec-value">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="model-security-features">
+                        <h4>Planned Security Features</h4>
+                        <div class="security-features-list">
+                            <div class="security-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="security-feature-content">
+                                    <h5>Advanced Attack Detection</h5>
+                                    <p>Real-time detection of sophisticated attack patterns</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="security-feature-content">
+                                    <h5>Adversarial Robustness</h5>
+                                    <p>Enhanced resistance to adversarial examples and inputs</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="security-feature-content">
+                                    <h5>Security-First Architecture</h5>
+                                    <p>Built from the ground up with security as the primary consideration</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="security-feature-content">
+                                    <h5>Enterprise-Grade Protection</h5>
+                                    <p>Designed for deployment in high-security enterprise environments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-actions">
+                        <a href="contact.html" class="btn btn-primary">Join Beta Program</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Information</a>
+                    </div>
+                </div>
+
+                <!-- Model 3: TBH.AI Base Reasoning -->
+                <div class="model-card-detailed">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3>TBH.AI Base Reasoning</h3>
+                            <p>Structured reasoning model with step-by-step problem solving</p>
+                        </div>
+                    </div>
+                    <div class="model-description">
+                        <p>TBH.AI Base Reasoning is a specialized model that uses thinking tokens similar to Deepseek R1 to enhance reasoning capabilities. This model is designed to break down complex problems into manageable steps, providing clear and logical thought processes in its responses.</p>
+                    </div>
+                    <div class="model-specs">
+                        <div class="model-spec">
+                            <span class="model-spec-label">Model Type</span>
+                            <span class="model-spec-value">Language Model</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Parameters</span>
+                            <span class="model-spec-value">3.09B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Base Model</span>
+                            <span class="model-spec-value">Qwen2.5-3B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">License</span>
+                            <span class="model-spec-value">Apache-2.0</span>
+                        </div>
+                    </div>
+                    <div class="model-security-features">
+                        <h4>Key Features</h4>
+                        <div class="security-features-list">
+                            <div class="security-feature">
+                                <i class="fas fa-brain"></i>
+                                <div class="security-feature-content">
+                                    <h5>Thinking Token Approach</h5>
+                                    <p>Uses specialized tokens to structure reasoning similar to Deepseek R1</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-project-diagram"></i>
+                                <div class="security-feature-content">
+                                    <h5>Step-by-Step Problem Solving</h5>
+                                    <p>Breaks down complex problems into logical steps for clearer reasoning</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-cogs"></i>
+                                <div class="security-feature-content">
+                                    <h5>GGUF Variant Available</h5>
+                                    <p>Optimized for local deployment with TBH.AI_Base_Reasoning_GGUF</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-actions">
+                        <a href="https://huggingface.co/saishshinde15/TBH.AI_Base_Reasoning" class="btn btn-primary" target="_blank">View on HuggingFace</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- Model 4: TBH.AI Vortex -->
+                <div class="model-card-detailed">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3>TBH.AI Vortex</h3>
+                            <p>Foundation model fine-tuned on high-quality datasets</p>
+                        </div>
+                    </div>
+                    <div class="model-description">
+                        <p>TBH.AI Vortex is a specialized SFT (Supervised Fine-Tuning) model that has been tuned on a high-quality dataset to enhance its performance across various tasks. This model serves as the foundation for our Vortex series and is available in both standard and GGUF formats for flexible deployment.</p>
+                    </div>
+                    <div class="model-specs">
+                        <div class="model-spec">
+                            <span class="model-spec-label">Model Type</span>
+                            <span class="model-spec-value">Language Model</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Parameters</span>
+                            <span class="model-spec-value">3.09B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">Base Model</span>
+                            <span class="model-spec-value">Qwen2.5-3B</span>
+                        </div>
+                        <div class="model-spec">
+                            <span class="model-spec-label">License</span>
+                            <span class="model-spec-value">Apache-2.0</span>
+                        </div>
+                    </div>
+                    <div class="model-security-features">
+                        <h4>Key Features</h4>
+                        <div class="security-features-list">
+                            <div class="security-feature">
+                                <i class="fas fa-database"></i>
+                                <div class="security-feature-content">
+                                    <h5>High-Quality Dataset</h5>
+                                    <p>Fine-tuned on carefully curated, high-quality data for improved performance</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-cogs"></i>
+                                <div class="security-feature-content">
+                                    <h5>GGUF Variant Available</h5>
+                                    <p>Optimized for local deployment with TBH.AI_Vortex_GGUF</p>
+                                </div>
+                            </div>
+                            <div class="security-feature">
+                                <i class="fas fa-project-diagram"></i>
+                                <div class="security-feature-content">
+                                    <h5>Foundation Model</h5>
+                                    <p>Serves as the foundation for our specialized Vortex series models</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-actions">
+                        <a href="https://huggingface.co/saishshinde15/TBH.AI_Vortex" class="btn btn-primary" target="_blank">View on HuggingFace</a>
+                        <a href="contact.html" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                </div>
+
+                <!-- More Models Coming Soon -->
+                <div class="model-card-detailed">
+                    <div class="model-header">
+                        <div class="model-title">
+                            <h3>More Models Coming Soon</h3>
+                            <p>Stay tuned for our upcoming security-focused models</p>
+                        </div>
+                    </div>
+                    <div class="model-description">
+                        <p>We're constantly working on new models with enhanced security features. Our research team is focused on developing innovative approaches to AI security, and we'll be releasing more specialized models in the near future.</p>
+                    </div>
+                    <div class="model-actions">
+                        <a href="https://huggingface.co/TBHAI" class="btn btn-primary" target="_blank">Follow Us on HuggingFace</a>
+                        <a href="contact.html" class="btn btn-secondary">Contact for Updates</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Secure Your AI Systems?</h2>
+                <p>Get in touch with our team to discuss how tbh.ai can help secure your AI infrastructure.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
+                    <span class="logo-text">tbh.ai</span>
+                    <p>Securing the AI Revolution</p>
+                    <div class="social-links">
+                        <a href="https://github.com/saishshinde15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace"><i class="fas fa-robot"></i></a>
+                        <a href="https://linkedin.com/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:saish.shinde.jb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="secure-agents.html">Secure Agents</a></li>
+                            <li><a href="products.html#current-models">Current Models</a></li>
+                            <li><a href="models.html">Security Models</a></li>
+                            <li><a href="products.html#ai-guard">AI Guard</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" target="_blank">GitHub Repository</a></li>
+                            <li><a href="https://huggingface.co/TBHAI" target="_blank">HuggingFace Models</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 tbh.ai. All rights reserved.</p>
+                <p class="footer-tagline">Building secure AI for a safer future</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
