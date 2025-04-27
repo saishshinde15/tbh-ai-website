@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - tbh.ai</title>
     <link rel="stylesheet" href="styles/main.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,7 +130,7 @@
         <section class="contact-form-section">
             <div class="container">
                 <div class="contact-form-container">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/saish.shinde.jb@gmail.com" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -151,6 +151,8 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
+                        <input type="hidden" name="_subject" value="New contact from tbh.ai website">
+                        <input type="text" name="_gotcha" style="display:none">
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
 
@@ -259,12 +261,10 @@
     <script>
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // In a real implementation, you would send the form data to a server
-            // For this demo, we'll just show an alert
+            // Don't prevent default - let the form submit to Formspree
+            // Just show a message to the user
             alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+            // Form will be reset automatically after submission
         });
     </script>
 </body>
