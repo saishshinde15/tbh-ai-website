@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products & Solutions - tbh.ai</title>
+    <title>SecureAgents - tbh.ai</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/network-animation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +30,14 @@
             <nav class="nav-links">
                 <a href="index.html" class="animated-link">Home</a>
                 <a href="about.html" class="animated-link">About</a>
-                <a href="secureagents.html" class="animated-link">SecureAgents</a>
-                <a href="products.html" class="active animated-link">Products</a>
+                <a href="secureagents.html" class="active animated-link">SecureAgents</a>
+                <a href="products.html" class="animated-link">Products</a>
                 <a href="models.html" class="animated-link">Models</a>
                 <a href="blog.html" class="animated-link">Blog</a>
                 <a href="contact.html" class="animated-link">Contact</a>
             </nav>
             <div class="nav-cta">
-                <a href="https://github.com/tbh-ai/SecureAgents.git" class="btn btn-primary-nav" target="_blank">GitHub</a>
+                <a href="https://github.com/tbh-ai/.github/blob/main/profile/README.md" class="btn btn-primary-nav" target="_blank">GitHub</a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
@@ -57,187 +57,233 @@
                     </div>
                 </div>
                 <div class="hero-img animate-fade-in">
-                    <img src="images/secure_agents_hero.svg" alt="Products & Solutions Illustration">
+                    <img src="images/secureagents_hero.svg" alt="SecureAgents Framework Illustration">
                 </div>
             </div>
         </section>
 
-        <section id="secureagents" class="section-padding section-with-bg">
+        <section id="overview" class="section-padding section-with-bg">
             <div class="container">
-                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Key Features</h2>
-                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">SecureAgents provides comprehensive security features to protect your multi-agent systems from various threats and vulnerabilities.</p>
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">What is SecureAgents?</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">SecureAgents is a comprehensive framework for building secure multi-agent systems with built-in security features, permission controls, and monitoring capabilities. It enables developers to create AI agent systems that are resistant to common attacks and vulnerabilities.</p>
 
                 <div class="features-container" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>Hijacking Prevention</h3>
-                        <p>Advanced protection against agent hijacking attempts and data leakage vulnerabilities</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Multi-Agent Security</h3>
-                        <p>Exploitation prevention and reliability enhancements for complex agent systems</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3>Modular Design</h3>
-                        <p>Flexible operation management with modular expert design for customizable security</p>
-                    </div>
-                </div>
-
-                <div class="features-container" data-aos="fade-up" data-aos-delay="300" style="margin-top: 2rem;">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <h3>Secure Communication</h3>
-                        <p>Dynamic guardrails and secure inter-agent communication protocols</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h3>Documentation</h3>
-                        <p>Comprehensive security documentation and implementation guides</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="ai-models" class="section-padding" style="background-color: var(--bg-secondary-dark);">
-            <div class="container">
-                <h2 class="section-title gradient-text text-center" data-aos="fade-up">AI Models</h2>
-                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">Our models on HuggingFace include the Vortex, Reasoning, and Valhalla series, available in standard and GGUF formats for flexible deployment.</p>
-
-                <div class="models-grid">
-                    <div class="model-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-brain highlight-icon"></i>
-                        <h4>Vortex Series</h4>
-                        <p>Advanced reasoning models with structured thought processes for complex problem-solving.</p>
-                    </div>
-
-                    <div class="model-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-project-diagram highlight-icon"></i>
-                        <h4>Reasoning Series</h4>
-                        <p>Specialized models for step-by-step problem solving with clear reasoning paths.</p>
-                    </div>
-
-                    <div class="model-card" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-lightbulb highlight-icon"></i>
-                        <h4>Valhalla Series</h4>
-                        <p>Knowledge synthesis models with personalized response capabilities.</p>
-                    </div>
-
-                    <div class="model-card" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fas fa-lock highlight-icon"></i>
-                        <h4>Security-First LLMs <span class="coming-soon">(Beta)</span></h4>
-                        <p>Models with prompt injection resistance, context boundary enforcement, and secure output filtering.</p>
-                    </div>
-                </div>
-
-                <div class="text-center" data-aos="fade-up" data-aos-delay="500" style="margin-top: 3rem;">
-                    <a href="https://huggingface.co/TBHAI" class="btn btn-primary huggingface-btn" target="_blank">
-                        See All Models on HuggingFace
-                        <span class="inline-hf-icon btn-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
-                                <path d="M7.5 5c-.8 0-1.5.7-1.5 1.5S6.7 8 7.5 8S9 7.3 9 6.5S8.3 5 7.5 5zm9 0c-.8 0-1.5.7-1.5 1.5S15.7 8 16.5 8S18 7.3 18 6.5S17.3 5 16.5 5z"/>
-                                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8c0-.4 0-.8.1-1.2c.3.2.6.4 1 .5c.2.1.4.1.6.1c.3 0 .6-.1.8-.2c.5-.2.9-.6 1.2-1.1c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.5.7.9 1.2 1.1c.2.1.5.2.8.2c.2 0 .4 0 .6-.1c.4-.1.7-.3 1-.5c.1.4.1.8.1 1.2c0 4.4-3.6 8-8 8z"/>
-                            </svg>
-                        </span>
-                    </a>
-                    <a href="models.html" class="btn btn-secondary">Learn More About Our Models</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="security-toolkit" class="section-padding section-with-bg">
-            <div class="container">
-                <h2 class="section-title gradient-text text-center" data-aos="fade-up">AI Security Toolkit <span class="coming-soon">(Coming Soon)</span></h2>
-                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">A comprehensive suite of tools for identifying, mitigating, and monitoring security risks in AI applications.</p>
-
-                <div class="features-container" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <h3>Vulnerability Scanning</h3>
-                        <p>Identify potential security risks in your AI models and applications</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-virus"></i>
-                        </div>
-                        <h3>Runtime Protection</h3>
-                        <p>Real-time monitoring and protection against emerging threats</p>
+                        <h3>Security First</h3>
+                        <p>Built with security as a core principle, not an afterthought</p>
                     </div>
 
                     <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3>Integration APIs</h3>
-                        <p>Seamless integration with your existing AI infrastructure</p>
+                        <h3>Developer Friendly</h3>
+                        <p>Easy-to-use API with comprehensive documentation</p>
                     </div>
-                </div>
 
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300" style="margin-top: 3rem;">
-                    <a href="contact.html" class="btn btn-primary btn-animated">Join Waitlist <i class="fas fa-arrow-right"></i></a>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Modular Design</h3>
+                        <p>Flexible architecture that adapts to your specific needs</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="ai-guard" class="section-padding" style="background-color: var(--bg-secondary-dark);">
+        <section id="key-features" class="section-padding" style="background-color: var(--bg-secondary-dark);">
             <div class="container">
-                <h2 class="section-title gradient-text text-center" data-aos="fade-up">AI Guard <span class="coming-soon">(In Development)</span></h2>
-                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">A modular, extensible framework for evaluating LLM and agent security across attack vectors.</p>
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Key Features</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">SecureAgents provides a comprehensive set of security features to protect your multi-agent systems.</p>
+
+                <div class="models-grid">
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-user-shield highlight-icon"></i>
+                        <h4>Agent Hijacking Prevention</h4>
+                        <p>Advanced protection mechanisms to prevent unauthorized control of agents, including input validation, context boundary enforcement, and execution monitoring.</p>
+                    </div>
+
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-lock highlight-icon"></i>
+                        <h4>Data Leakage Protection</h4>
+                        <p>Comprehensive safeguards to prevent sensitive information from being exposed, including output filtering, data masking, and access controls.</p>
+                    </div>
+
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-project-diagram highlight-icon"></i>
+                        <h4>Secure Inter-Agent Communication</h4>
+                        <p>Encrypted and authenticated communication channels between agents with message validation and integrity checks.</p>
+                    </div>
+
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-cogs highlight-icon"></i>
+                        <h4>Permission Profiles</h4>
+                        <p>Granular permission controls for agents, defining what resources they can access and what actions they can perform.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="getting-started" class="section-padding section-with-bg">
+            <div class="container">
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Getting Started</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">Start building secure multi-agent systems in minutes with our easy-to-follow installation and setup process.</p>
+
+                <div class="code-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="code-header">
+                        <span>Installation</span>
+                    </div>
+                    <pre class="code-block"><code>pip install tbh-secure-agents</code></pre>
+                </div>
+
+                <div class="code-container" data-aos="fade-up" data-aos-delay="300" style="margin-top: 2rem;">
+                    <div class="code-header">
+                        <span>Basic Usage</span>
+                    </div>
+                    <pre class="code-block"><code>from tbh_secure_agents import Expert, Operation, Squad
+import os
+
+# Create output directory
+os.makedirs("output", exist_ok=True)
+
+# Define experts with specific specialties and security profiles
+content_writer = Expert(
+    specialty="Content Writer",
+    objective="Create engaging and informative content",
+    background="Experienced in creating clear, concise, and engaging content.",
+    security_profile="minimal"  # Using minimal security for simplicity
+)
+
+data_analyst = Expert(
+    specialty="Data Analyst",
+    objective="Analyze data and provide insights",
+    background="Skilled in interpreting data and extracting meaningful insights.",
+    security_profile="minimal"  # Using minimal security for simplicity
+)
+
+# Define operations with result destinations
+content_operation = Operation(
+    instructions="Write a short blog post about the benefits of artificial intelligence in healthcare.",
+    output_format="A well-structured blog post with a title, introduction, main points, and conclusion.",
+    expert=content_writer,
+    result_destination="output/healthcare_ai_blog.md"  # Save result to a markdown file
+)
+
+analysis_operation = Operation(
+    instructions="Analyze the following data and provide insights: Patient wait times decreased by 30% after implementing AI scheduling. Diagnostic accuracy improved by 15%. Treatment planning time reduced by 25%.",
+    output_format="A concise analysis with key insights and recommendations.",
+    expert=data_analyst,
+    result_destination="output/healthcare_data_analysis.txt"  # Save result to a text file
+)
+
+# Create a squad with template variables in operations
+template_expert = Expert(
+    specialty="Healthcare Specialist",
+    objective="Provide {output_type} about healthcare technology",
+    background="Expert in healthcare technology with a focus on {focus_area}.",
+    security_profile="minimal"  # Using minimal security for simplicity
+)
+
+# Create an operation with template variables and conditional formatting
+template_operation = Operation(
+    instructions="""
+    Write a {length} summary about {topic} in healthcare.
+
+    {tone, select,
+      formal:Use a professional, academic tone suitable for medical professionals.|
+      conversational:Use a friendly, approachable tone suitable for patients and the general public.|
+      technical:Use precise technical language appropriate for healthcare IT specialists.
+    }
+
+    {include_statistics, select,
+      true:Include relevant statistics and data points to support your summary.|
+      false:Focus on qualitative information without specific statistics.
+    }
+    """,
+    expert=template_expert,
+    result_destination="output/healthcare_summary.html"  # Save result to an HTML file
+)
+
+# Form a squad with result destination
+healthcare_squad = Squad(
+    experts=[content_writer, data_analyst, template_expert],
+    operations=[content_operation, analysis_operation, template_operation],
+    process="sequential",  # Operations run in sequence, passing results as context
+    result_destination={
+        "format": "json",
+        "file_path": "output/healthcare_squad_result.json"  # Save squad result to a JSON file
+    }
+)
+
+# Define guardrail inputs
+guardrails = {
+    "output_type": "insights",
+    "focus_area": "AI implementation",
+    "length": "one-page",
+    "topic": "artificial intelligence",
+    "tone": "conversational",
+    "include_statistics": "true"
+}
+
+# Deploy the squad with guardrails
+result = healthcare_squad.deploy(guardrails=guardrails)
+
+print("Squad result:", result[:100] + "...")  # Print a preview of the result
+print("Results saved to the output directory")</code></pre>
+                </div>
+
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400" style="margin-top: 3rem;">
+                    <a href="https://github.com/tbh-ai/SecureAgents.git" class="btn btn-primary" target="_blank">View Full Documentation <i class="fas fa-book"></i></a>
+                    <a href="https://github.com/tbh-ai/SecureAgents.git" class="btn btn-secondary" target="_blank">See Examples</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="use-cases" class="section-padding" style="background-color: var(--bg-secondary-dark);">
+            <div class="container">
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Use Cases</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">SecureAgents is designed for a wide range of applications where security and reliability are critical.</p>
 
                 <div class="features-container" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-syringe"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <h3>Prompt Injection Testing</h3>
-                        <p>Comprehensive testing for prompt injection vulnerabilities</p>
+                        <h3>Enterprise Applications</h3>
+                        <p>Build secure agent systems for handling sensitive corporate data and processes</p>
                     </div>
 
                     <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-user-secret"></i>
+                            <i class="fas fa-hospital"></i>
                         </div>
-                        <h3>Data Leakage Evaluation</h3>
-                        <p>Identify potential data leakage risks in your AI systems</p>
+                        <h3>Healthcare</h3>
+                        <p>Create compliant agent systems for medical data analysis and patient care</p>
                     </div>
 
                     <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-random"></i>
+                            <i class="fas fa-university"></i>
                         </div>
-                        <h3>Advanced Attack Simulation</h3>
-                        <p>Simulate sophisticated attacks to test your AI defenses</p>
+                        <h3>Financial Services</h3>
+                        <p>Develop secure agents for financial analysis, fraud detection, and customer service</p>
                     </div>
-                </div>
-
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300" style="margin-top: 3rem;">
-                    <a href="contact.html" class="btn btn-primary btn-animated">Join Early Access <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
 
         <section class="section-padding cta-section">
             <div class="container text-center">
-                <h2 data-aos="fade-up">Ready to Secure Your AI Systems?</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Contact our experts to discuss how tbh.ai can help you build secure, trustworthy AI infrastructure.</p>
-                <a href="contact.html" class="btn btn-primary btn-animated" data-aos="fade-up" data-aos-delay="200">Contact Us <i class="fas fa-arrow-right"></i></a>
+                <h2 data-aos="fade-up">Ready to Build Secure AI Systems?</h2>
+                <p data-aos="fade-up" data-aos-delay="100">Start building with SecureAgents today and ensure your multi-agent systems are secure by design.</p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://github.com/tbh-ai/SecureAgents.git" class="btn btn-primary btn-animated" target="_blank">Get Started <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
             </div>
         </section>
     </main>
@@ -250,7 +296,7 @@
                 </a>
                 <p class="footer-bio">Leading the AI Security Revolution with innovative frameworks and solutions for trustworthy AI systems.</p>
                 <div class="footer-social">
-                    <a href="https://github.com/tbh-ai/SecureAgents.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/tbh-ai" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace" class="huggingface-icon">
                         <i class="fas fa-smile-beam"></i>
                     </a>
@@ -266,9 +312,9 @@
             <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
                 <h4>Solutions</h4>
                 <a href="secureagents.html">SecureAgents</a>
-                <a href="#ai-models">AI Models</a>
-                <a href="#security-toolkit">Security Toolkit</a>
-                <a href="#ai-guard">AI Guard</a>
+                <a href="products.html#ai-models">AI Models</a>
+                <a href="products.html#security-toolkit">Security Toolkit</a>
+                <a href="products.html#ai-guard">AI Guard</a>
             </div>
             <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
                 <h4>Contact</h4>

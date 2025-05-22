@@ -1,0 +1,166 @@
+/* Network Animation Background for tbh.ai */
+
+.network-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    background-color: transparent; /* Removed background color */
+}
+
+.network-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(30, 99, 255, 0.08) 0%, transparent 70%);
+    animation: pulse-glow 8s ease-in-out infinite alternate;
+}
+
+.network-node {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(30, 99, 255, 0.7);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    will-change: transform, box-shadow, opacity;
+}
+
+.network-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(30, 99, 255, 0.3), rgba(0, 229, 255, 0.3));
+    transform-origin: 0 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    will-change: transform, opacity, width;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+/* Hover effects for nodes */
+.network-node:hover {
+    transform: scale(2);
+    box-shadow: 0 0 20px rgba(30, 99, 255, 0.8);
+    z-index: 10;
+}
+
+/* Network animation script to be included in all pages */
+/*
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create network animation
+        const networkAnimation = document.createElement('div');
+        networkAnimation.className = 'network-animation';
+        document.body.appendChild(networkAnimation);
+
+        // Create nodes
+        const nodeCount = 30;
+        const nodes = [];
+
+        for (let i = 0; i < nodeCount; i++) {
+            const node = document.createElement('div');
+            node.className = 'network-node';
+
+            // Random position
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+
+            node.style.left = `${x}%`;
+            node.style.top = `${y}%`;
+
+            // Random size (1-3px)
+            const size = 1 + Math.random() * 2;
+            node.style.width = `${size}px`;
+            node.style.height = `${size}px`;
+
+            // Random opacity
+            node.style.opacity = 0.3 + Math.random() * 0.7;
+
+            // Add animation
+            node.style.animation = `pulse-glow ${3 + Math.random() * 5}s ease-in-out infinite alternate`;
+
+            networkAnimation.appendChild(node);
+            nodes.push({
+                element: node,
+                x: x,
+                y: y
+            });
+        }
+
+        // Create connections between nodes
+        for (let i = 0; i < nodes.length; i++) {
+            const nodeA = nodes[i];
+
+            // Connect to 2-3 closest nodes
+            const connections = 2 + Math.floor(Math.random() * 2);
+
+            // Find closest nodes
+            const distances = [];
+
+            for (let j = 0; j < nodes.length; j++) {
+                if (i !== j) {
+                    const nodeB = nodes[j];
+                    const distance = Math.sqrt(
+                        Math.pow(nodeA.x - nodeB.x, 2) +
+                        Math.pow(nodeA.y - nodeB.y, 2)
+                    );
+
+                    distances.push({
+                        index: j,
+                        distance: distance
+                    });
+                }
+            }
+
+            // Sort by distance
+            distances.sort((a, b) => a.distance - b.distance);
+
+            // Create connections to closest nodes
+            for (let k = 0; k < connections && k < distances.length; k++) {
+                const nodeB = nodes[distances[k].index];
+
+                const line = document.createElement('div');
+                line.className = 'network-line';
+
+                // Position line at nodeA
+                line.style.left = `${nodeA.x}%`;
+                line.style.top = `${nodeA.y}%`;
+
+                // Calculate length and angle
+                const dx = nodeB.x - nodeA.x;
+                const dy = nodeB.y - nodeA.y;
+                const length = Math.sqrt(dx * dx + dy * dy);
+                const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+                // Set line properties
+                line.style.width = `${length}%`;
+                line.style.transform = `rotate(${angle}deg)`;
+
+                // Random opacity
+                line.style.opacity = 0.1 + Math.random() * 0.2;
+
+                networkAnimation.appendChild(line);
+            }
+        }
+    });
+</script>
+*/

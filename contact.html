@@ -5,262 +5,475 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - tbh.ai</title>
     <link rel="stylesheet" href="styles/main.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/network-animation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/page-headers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Animation libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Contact Page Specific Styles */
-        .contact-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+        /* Animated background styles */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
         }
 
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        /* Contact form and item hover effects */
+        .contact-form {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(30, 99, 255, 0.1);
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(30, 99, 255, 0.3);
+        }
+
+        .contact-info-item {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(30, 99, 255, 0.1);
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(30, 99, 255, 0.3);
+        }
+
+        .contact-info-item a:hover {
+            color: var(--brand-blue) !important;
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Form input focus effects */
         .form-group {
-            margin-bottom: 20px;
+            position: relative;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--text-primary-dark);
+            transition: all 0.3s ease;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+        .form-group.focused label {
+            color: var(--brand-blue);
         }
 
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color-dark);
         }
 
-        .form-control:focus {
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: var(--brand-blue);
+            box-shadow: 0 0 0 2px rgba(0, 120, 255, 0.2);
             outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
         }
 
-        .contact-info {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .particle-1 {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
         }
 
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
+        .particle-2 {
+            width: 60px;
+            height: 60px;
+            top: 70%;
+            left: 20%;
+            animation-delay: -2s;
         }
 
-        .contact-info-icon {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-right: 15px;
+        .particle-3 {
+            width: 100px;
+            height: 100px;
+            top: 40%;
+            left: 80%;
+            animation-delay: -5s;
         }
 
-        .contact-info-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .particle-4 {
+            width: 50px;
+            height: 50px;
+            top: 80%;
+            left: 70%;
+            animation-delay: -7s;
         }
 
-        .contact-info-content p, .contact-info-content a {
-            color: var(--text-light);
+        .particle-5 {
+            width: 70px;
+            height: 70px;
+            top: 20%;
+            left: 60%;
+            animation-delay: -3s;
         }
 
-        .contact-form-section {
-            padding: 80px 0;
+        .particle-6 {
+            width: 90px;
+            height: 90px;
+            top: 15%;
+            left: 15%;
+            animation-delay: -1s;
+        }
+
+        .particle-7 {
+            width: 65px;
+            height: 65px;
+            top: 60%;
+            left: 75%;
+            animation-delay: -4s;
+        }
+
+        .particle-8 {
+            width: 55px;
+            height: 55px;
+            top: 75%;
+            left: 30%;
+            animation-delay: -6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(0) translateX(20px);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px);
+            }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Loading animation for form submission */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s ease-in-out infinite;
+            position: absolute;
+            top: calc(50% - 12px);
+            left: calc(50% - 12px);
+        }
+
+        button[type="submit"].loading .loading-spinner {
+            display: inline-block;
+        }
+
+        button[type="submit"].loading span {
+            visibility: hidden;
+        }
+
+        /* Input focus effects */
+        input:focus + div, textarea:focus + div {
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
-                        <span class="logo-text">tbh.ai</span>
-                    </a>
-                </div>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" style="pointer-events: auto;">Home</a></li>
-                    <li><a href="about.html" style="pointer-events: auto;">About</a></li>
-                    <li><a href="products.html" style="pointer-events: auto;">Products</a></li>
-                    <li><a href="models.html" style="pointer-events: auto;">Models</a></li>
-                    <li><a href="secure-agents.html" style="pointer-events: auto;">Secure Agents</a></li>
-                    <li><a href="careers.html" style="pointer-events: auto;">Careers</a></li>
-                    <li><a href="contact.html" class="active nav-cta" style="pointer-events: auto;">Contact Us</a></li>
-                </ul>
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.svg" alt="tbh.ai Logo" style="height: 40px;">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="secureagents.html">SecureAgents</a>
+                <a href="products.html">Products</a>
+                <a href="models.html">Models</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary-nav">Get Started</a>
             </div>
-        </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
     <main>
-        <!-- Contact Hero Section -->
-        <section class="page-header">
+        <section class="hero" style="background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-purple-dark) 100%); position: relative; overflow: hidden; min-height: 50vh; display: flex; align-items: center;">
+            <!-- Animated background elements -->
+            <div class="animated-bg">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+                <div class="particle particle-6"></div>
+                <div class="particle particle-7"></div>
+                <div class="particle particle-8"></div>
+            </div>
             <div class="container">
-                <h1>Contact Us</h1>
-                <p>Get in touch with our team to discuss your AI security needs</p>
-                <div class="breadcrumbs">
-                    <a href="index.html">Home</a>
-                    <span class="separator">/</span>
-                    <span class="current">Contact</span>
+                <div class="hero-content text-center" style="max-width: 800px; margin: 0 auto; padding: 5rem 1rem;" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="hero-title" style="font-size: 3.5rem; margin-bottom: 1.5rem; font-weight: 700; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                        <span style="background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">Get in Touch</span>
+                    </h1>
+                    <p class="hero-subtitle" style="font-size: 1.35rem; max-width: 650px; margin: 0 auto; line-height: 1.6; color: rgba(255, 255, 255, 0.9);">We're here to answer your questions about AI security and our solutions. Reach out to our team for personalized assistance.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section class="contact-form-section">
-            <div class="container">
-                <div class="contact-form-container">
-                    <form id="contactForm" action="https://formsubmit.co/saish.shinde.jb@gmail.com" method="POST">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
-                        </div>
-                        <!-- FormSubmit configuration -->
-                        <input type="hidden" name="_subject" value="New Contact Form Submission - tbh.ai">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="http://www.tbhai.co.in/thank-you.html">
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+        <section id="contact-form-section" class="section-padding" style="padding: 6rem 0; position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(5, 8, 13, 0.3) 0%, rgba(14, 19, 27, 0.5) 100%);">
+            <!-- Network animation will be added by the script -->
+            <div class="container" style="max-width: 650px; margin: 0 auto; position: relative; z-index: 2;" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="section-title text-center" style="margin-bottom: 2.5rem; font-size: 2.5rem; font-weight: 700; color: var(--brand-white); text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                    <span style="background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; position: relative;">
+                        Send Us a Message
+                        <span style="position: absolute; height: 3px; width: 80px; background: var(--brand-gradient); bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 3px;"></span>
+                    </span>
+                </h2>
+                <form action="https://formsubmit.co/saish.shinde.jb@gmail.com" method="POST" class="contact-form" style="margin-top: 2rem; background-color: rgba(24, 31, 41, 0.7); padding: 2.5rem; border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); backdrop-filter: blur(15px); border: 1px solid rgba(30, 99, 255, 0.15);" data-aos="fade-up" data-aos-delay="200">
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New message from tbhai.solutions website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Honeypot field to prevent spam -->
+                    <input type="text" name="_honey" style="display:none">
 
-                    <div class="contact-info">
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h3>Email</h3>
-                                <p><a href="mailto:saish.shinde.jb@gmail.com">saish.shinde.jb@gmail.com</a></p>
-                            </div>
+                    <div class="form-group" style="margin-bottom: 1.8rem; position: relative;">
+                        <label for="name" style="display: block; margin-bottom: 0.7rem; font-weight: 600; color: var(--brand-white); font-size: 1.05rem; letter-spacing: 0.02em;">Full Name</label>
+                        <div style="position: relative;">
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 1rem 1.2rem; border-radius: 12px; border: 1px solid rgba(30, 99, 255, 0.2); background-color: rgba(24, 31, 41, 0.8); color: var(--brand-white); font-size: 1.05rem; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) inset;">
+                            <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--brand-gradient); transition: width 0.3s ease; border-radius: 0 0 12px 12px;"></div>
                         </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h3>GitHub</h3>
-                                <p><a href="https://github.com/saishshinde15" target="_blank">github.com/saishshinde15</a></p>
-                            </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.8rem; position: relative;">
+                        <label for="email" style="display: block; margin-bottom: 0.7rem; font-weight: 600; color: var(--brand-white); font-size: 1.05rem; letter-spacing: 0.02em;">Email Address</label>
+                        <div style="position: relative;">
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 1rem 1.2rem; border-radius: 12px; border: 1px solid rgba(30, 99, 255, 0.2); background-color: rgba(24, 31, 41, 0.8); color: var(--brand-white); font-size: 1.05rem; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) inset;">
+                            <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--brand-gradient); transition: width 0.3s ease; border-radius: 0 0 12px 12px;"></div>
                         </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h3>HuggingFace</h3>
-                                <p><a href="https://huggingface.co/TBHAI" target="_blank">huggingface.co/TBHAI</a></p>
-                            </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.8rem; position: relative;">
+                        <label for="subject" style="display: block; margin-bottom: 0.7rem; font-weight: 600; color: var(--brand-white); font-size: 1.05rem; letter-spacing: 0.02em;">Subject</label>
+                        <div style="position: relative;">
+                            <input type="text" id="subject" name="subject" required style="width: 100%; padding: 1rem 1.2rem; border-radius: 12px; border: 1px solid rgba(30, 99, 255, 0.2); background-color: rgba(24, 31, 41, 0.8); color: var(--brand-white); font-size: 1.05rem; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) inset;">
+                            <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--brand-gradient); transition: width 0.3s ease; border-radius: 0 0 12px 12px;"></div>
                         </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h3>LinkedIn</h3>
-                                <p><a href="https://linkedin.com/company/tbh-ai" target="_blank">linkedin.com/company/tbh-ai</a></p>
-                            </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2rem; position: relative;">
+                        <label for="message" style="display: block; margin-bottom: 0.7rem; font-weight: 600; color: var(--brand-white); font-size: 1.05rem; letter-spacing: 0.02em;">Message</label>
+                        <div style="position: relative;">
+                            <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 1rem 1.2rem; border-radius: 12px; border: 1px solid rgba(30, 99, 255, 0.2); background-color: rgba(24, 31, 41, 0.8); color: var(--brand-white); line-height: 1.6; font-size: 1.05rem; resize: vertical; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) inset;"></textarea>
+                            <div style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--brand-gradient); transition: width 0.3s ease; border-radius: 0 0 12px 12px;"></div>
                         </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <div class="contact-info-content">
-                                <h3>Careers</h3>
-                                <p><a href="careers.html">Join our team</a></p>
-                            </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" id="submit-btn" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; background: var(--brand-gradient); color: var(--brand-white); border-radius: 12px; border: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; box-shadow: 0 8px 25px rgba(30, 99, 255, 0.3);">
+                            <span style="position: relative; z-index: 2;">Send Message</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="contact-details" class="section-padding" style="background-color: rgba(18, 23, 33, 0.8); position: relative; overflow: hidden; padding: 5rem 0; border-top: 1px solid rgba(30, 99, 255, 0.1);">
+            <!-- Network animation will be added by the script -->
+            <div class="container" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="section-title text-center" style="margin-bottom: 3rem; font-size: 2.5rem; font-weight: 700; color: var(--brand-white); text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">
+                    <span style="background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; position: relative;">
+                        Other Ways to Reach Us
+                        <span style="position: absolute; height: 3px; width: 80px; background: var(--brand-gradient); bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 3px;"></span>
+                    </span>
+                </h2>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; margin-top: 2rem; position: relative; z-index: 2;">
+                    <div class="contact-info-item" style="text-align: center; background-color: rgba(24, 31, 41, 0.7); padding: 2.5rem; border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); width: 260px; backdrop-filter: blur(15px); border: 1px solid rgba(30, 99, 255, 0.15);" data-aos="fade-up" data-aos-delay="200">
+                        <div style="margin-bottom: 1.5rem; background: linear-gradient(135deg, rgba(30, 99, 255, 0.2) 0%, rgba(87, 37, 225, 0.2) 100%); padding: 1.2rem; border-radius: 50%; width: 80px; height: 80px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(30, 99, 255, 0.2);">
+                            <i class="fas fa-envelope fa-2x" style="color: var(--brand-white); font-size: 2.2rem;"></i>
                         </div>
+                        <h4 style="margin-bottom: 0.8rem; font-size: 1.4rem; font-weight: 600; color: var(--brand-white);">Email</h4>
+                        <p><a href="mailto:saish.shinde.jb@gmail.com" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;">saish.shinde.jb@gmail.com</a></p>
+                    </div>
+                    <div class="contact-info-item" style="text-align: center; background-color: rgba(24, 31, 41, 0.7); padding: 2.5rem; border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); width: 260px; backdrop-filter: blur(15px); border: 1px solid rgba(30, 99, 255, 0.15);" data-aos="fade-up" data-aos-delay="300">
+                        <div style="margin-bottom: 1.5rem; background: linear-gradient(135deg, rgba(30, 99, 255, 0.2) 0%, rgba(87, 37, 225, 0.2) 100%); padding: 1.2rem; border-radius: 50%; width: 80px; height: 80px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(30, 99, 255, 0.2);">
+                            <i class="fab fa-linkedin fa-2x" style="color: var(--brand-white); font-size: 2.2rem;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 0.8rem; font-size: 1.4rem; font-weight: 600; color: var(--brand-white);">LinkedIn</h4>
+                        <p><a href="https://www.linkedin.com/company/tbh-ai" target="_blank" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;">tbh.ai on LinkedIn</a></p>
+                    </div>
+                    <div class="contact-info-item" style="text-align: center; background-color: rgba(24, 31, 41, 0.7); padding: 2.5rem; border-radius: 16px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); width: 260px; backdrop-filter: blur(15px); border: 1px solid rgba(30, 99, 255, 0.15);" data-aos="fade-up" data-aos-delay="400">
+                        <div style="margin-bottom: 1.5rem; background: rgba(30, 99, 255, 0.1); padding: 1.2rem; border-radius: 50%; width: 80px; height: 80px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(30, 99, 255, 0.2);">
+                            <i class="fas fa-smile-beam" style="font-size: 3rem; color: var(--text-primary-dark);"></i>
+                        </div>
+                        <h4 style="margin-bottom: 0.8rem; font-size: 1.4rem; font-weight: 600; color: var(--brand-white);">HuggingFace</h4>
+                        <p><a href="https://huggingface.co/TBHAI" target="_blank" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.3s ease; font-size: 1.05rem;">TBHAI</a></p>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
-                    <span class="logo-text">tbh.ai</span>
-                    <p>Securing the AI Revolution</p>
-                    <div class="social-links">
-                        <a href="https://github.com/saishshinde15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace"><i class="fas fa-robot"></i></a>
-                        <a href="https://linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:saish.shinde.jb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h3>Company</h3>
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="careers.html">Careers</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Products</h3>
-                        <ul>
-                            <li><a href="secure-agents.html">Secure Agents</a></li>
-                            <li><a href="products.html#current-models">Current Models</a></li>
-                            <li><a href="models.html">Security Models</a></li>
-                            <li><a href="products.html#ai-guard">AI Guard</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" target="_blank">GitHub Repository</a></li>
-                            <li><a href="https://huggingface.co/TBHAI" target="_blank">HuggingFace Models</a></li>
-                        </ul>
-                    </div>
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo-bio">
+                 <a href="index.html" class="logo footer-logo">
+                    <img src="images/logo.svg" alt="tbh.ai Logo" style="height: 30px;">
+                 </a>
+                 <p class="footer-bio">Building Trustworthy Systems for the Future.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="products.html#secureagents">SecureAgents</a></li>
+                    <li><a href="products.html#llm-security">LLM Security</a></li>
+                    <li><a href="products.html#ai-red-teaming">AI Red Teaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:saish.shinde.jb@gmail.com">saish.shinde.jb@gmail.com</a></p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace" class="huggingface-icon">
+                        <i class="fas fa-smile-beam"></i>
+                    </a>
+                    <a href="https://github.com/tbh-ai/SecureAgents.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 tbh.ai. All rights reserved.</p>
-                <p class="footer-tagline">Building secure AI for a safer future</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> tbh.ai. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/direct-nav.js"></script>
-    <!-- No custom JavaScript needed for form submission as FormSubmit.co handles it -->
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Form input enhancement
+        const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+                this.style.borderColor = 'rgba(30, 99, 255, 0.5)';
+                this.style.boxShadow = '0 4px 15px rgba(30, 99, 255, 0.15)';
+
+                // Animate the underline
+                const underline = this.nextElementSibling;
+                if (underline) {
+                    underline.style.width = '100%';
+                }
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+                if (!this.value) {
+                    this.style.borderColor = 'rgba(30, 99, 255, 0.2)';
+                    this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1) inset';
+
+                    // Reset the underline
+                    const underline = this.nextElementSibling;
+                    if (underline) {
+                        underline.style.width = '0';
+                    }
+                }
+            });
+        });
+
+        // Form submission loading state
+        const contactForm = document.querySelector('.contact-form');
+        const submitButton = document.getElementById('submit-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function() {
+                submitButton.classList.add('loading');
+                submitButton.disabled = true;
+            });
+        }
+
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: false,
+                mirror: false
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/network-animation.js"></script>
 </body>
 </html>

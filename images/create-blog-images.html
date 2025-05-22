@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Website Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #1E63FF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        button:hover {
+            background-color: #0040c0;
+        }
+        .canvas-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .canvas-container {
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Website Image Generator</h1>
+
+    <h2>Hero Images for Each Page</h2>
+    <div class="canvas-row">
+        <div class="canvas-container">
+            <canvas id="homeHeroCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('homeHeroCanvas', 'home_hero.svg')">Download Home Hero</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="aboutHeroCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('aboutHeroCanvas', 'about_hero.svg')">Download About Hero</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvas-row">
+        <div class="canvas-container">
+            <canvas id="secureAgentsHeroCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('secureAgentsHeroCanvas', 'secureagents_hero.svg')">Download SecureAgents Hero</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="productsHeroCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('productsHeroCanvas', 'products_hero.svg')">Download Products Hero</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="modelsHeroCanvas" width="800" height="400"></canvas>
+        <div class="controls">
+            <button onclick="downloadImage('modelsHeroCanvas', 'models_hero.svg')">Download Models Hero</button>
+        </div>
+    </div>
+
+    <h2>Blog Post Images</h2>
+    <div class="canvas-row">
+        <div class="canvas-container">
+            <canvas id="secureAgentsCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('secureAgentsCanvas', 'blog-secure-agents.svg')">Download Secure Agents Blog</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="aiSecurityCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('aiSecurityCanvas', 'blog-ai-security.svg')">Download AI Security Blog</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="canvas-row">
+        <div class="canvas-container">
+            <canvas id="aiEthicsCanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('aiEthicsCanvas', 'blog-ai-ethics.svg')">Download AI Ethics Blog</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="futureAICanvas" width="800" height="400"></canvas>
+            <div class="controls">
+                <button onclick="downloadImage('futureAICanvas', 'blog-future-ai.svg')">Download Future of AI Blog</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to draw the Home Hero image
+        function drawHomeHeroImage() {
+            const canvas = document.getElementById('homeHeroCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient with more sophisticated colors
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#0a1929');
+            gradient.addColorStop(0.4, '#112a45');
+            gradient.addColorStop(0.8, '#1a2d3d');
+            gradient.addColorStop(1, '#15253a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add subtle grid pattern
+            drawGridPattern(ctx, canvas.width, canvas.height);
+
+            // Add a subtle glow in the center
+            const centerGlow = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 50,
+                canvas.width/2, canvas.height/2, 300
+            );
+            centerGlow.addColorStop(0, 'rgba(30, 99, 255, 0.15)');
+            centerGlow.addColorStop(1, 'rgba(30, 99, 255, 0)');
+            ctx.fillStyle = centerGlow;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add network nodes and connections with more density and better styling
+            drawNetworkNodes(ctx, canvas.width, canvas.height, 30, true);
+
+            // Add shield icon with enhanced glow effect
+            drawShieldWithGlow(ctx, canvas.width / 2, canvas.height / 2, 100);
+
+            // Add title with shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.font = 'bold 42px Arial, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('SecureAgents Framework', canvas.width / 2, canvas.height - 80);
+
+            // Add decorative underline
+            ctx.shadowColor = 'transparent';
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 150, canvas.height - 70);
+            ctx.lineTo(canvas.width/2 + 150, canvas.height - 70);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add subtitle with better styling
+            ctx.font = '22px Arial, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.fillText('Building Trustworthy AI Systems', canvas.width / 2, canvas.height - 40);
+            ctx.shadowColor = 'transparent';
+        }
+
+        // Function to draw subtle grid pattern
+        function drawGridPattern(ctx, width, height) {
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+            ctx.lineWidth = 1;
+
+            // Horizontal lines
+            for (let y = 40; y < height; y += 40) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Vertical lines
+            for (let x = 40; x < width; x += 40) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+        }
+
+        // Function to draw the About Hero image with enhanced styling
+        function drawAboutHeroImage() {
+            const canvas = document.getElementById('aboutHeroCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient with more sophisticated colors
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#0d2136');
+            gradient.addColorStop(0.4, '#112d45');
+            gradient.addColorStop(0.8, '#1d3045');
+            gradient.addColorStop(1, '#162638');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add subtle grid pattern
+            drawGridPattern(ctx, canvas.width, canvas.height);
+
+            // Add a subtle glow in the center
+            const centerGlow = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 50,
+                canvas.width/2, canvas.height/2, 300
+            );
+            centerGlow.addColorStop(0, 'rgba(59, 130, 246, 0.15)');
+            centerGlow.addColorStop(1, 'rgba(59, 130, 246, 0)');
+            ctx.fillStyle = centerGlow;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add enhanced abstract shapes
+            drawAbstractShapes(ctx, canvas.width, canvas.height, true);
+
+            // Add enhanced company icon
+            drawCompanyIcon(ctx, canvas.width / 2, canvas.height / 2, 100);
+
+            // Add title with shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.font = 'bold 42px Arial, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('About tbh.ai', canvas.width / 2, canvas.height - 80);
+
+            // Add decorative underline
+            ctx.shadowColor = 'transparent';
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 100, canvas.height - 70);
+            ctx.lineTo(canvas.width/2 + 100, canvas.height - 70);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add subtitle with better styling
+            ctx.font = '22px Arial, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.fillText('Pioneering Trustworthy AI', canvas.width / 2, canvas.height - 40);
+            ctx.shadowColor = 'transparent';
+        }
+
+        // Function to draw the SecureAgents Hero image with enhanced styling
+        function drawSecureAgentsHeroImage() {
+            const canvas = document.getElementById('secureAgentsHeroCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient with more sophisticated colors
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#0a1929');
+            gradient.addColorStop(0.4, '#112a45');
+            gradient.addColorStop(0.8, '#1a2d3d');
+            gradient.addColorStop(1, '#15253a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add subtle grid pattern
+            drawGridPattern(ctx, canvas.width, canvas.height);
+
+            // Add a subtle glow in the center
+            const centerGlow = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 50,
+                canvas.width/2, canvas.height/2, 300
+            );
+            centerGlow.addColorStop(0, 'rgba(37, 99, 235, 0.15)');
+            centerGlow.addColorStop(1, 'rgba(37, 99, 235, 0)');
+            ctx.fillStyle = centerGlow;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add enhanced hexagon pattern
+            drawEnhancedHexagonPattern(ctx, canvas.width, canvas.height);
+
+            // Add shield icon with glow effect
+            drawShieldWithGlow(ctx, canvas.width / 2, canvas.height / 2, 90);
+
+            // Add title with shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.font = 'bold 42px Arial, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('SecureAgents Framework', canvas.width / 2, canvas.height - 80);
+
+            // Add decorative underline
+            ctx.shadowColor = 'transparent';
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 150, canvas.height - 70);
+            ctx.lineTo(canvas.width/2 + 150, canvas.height - 70);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add subtitle with better styling
+            ctx.font = '22px Arial, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.fillText('Building Secure Multi-Agent Systems', canvas.width / 2, canvas.height - 40);
+            ctx.shadowColor = 'transparent';
+        }
+
+        // Function to draw enhanced hexagon pattern
+        function drawEnhancedHexagonPattern(ctx, width, height) {
+            const hexSize = 40;
+            const hexHeight = hexSize * Math.sqrt(3);
+            const rows = Math.ceil(height / hexHeight) + 1;
+            const cols = Math.ceil(width / (hexSize * 1.5)) + 1;
+
+            // Create a more sophisticated pattern
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const x = col * hexSize * 1.5;
+                    const y = row * hexHeight + (col % 2 === 0 ? 0 : hexHeight / 2);
+
+                    // Only draw some hexagons for a sparse effect
+                    if (Math.random() > 0.4) {
+                        // Determine if this is a "feature" hexagon (more prominent)
+                        const isFeature = Math.random() > 0.8;
+
+                        if (isFeature) {
+                            // Draw a more prominent hexagon
+                            drawEnhancedHexagon(ctx, x, y, hexSize, true);
+                        } else {
+                            // Draw a regular hexagon
+                            drawEnhancedHexagon(ctx, x, y, hexSize, false);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Helper function to draw an enhanced hexagon
+        function drawEnhancedHexagon(ctx, x, y, size, isFeature) {
+            ctx.beginPath();
+
+            // Draw hexagon path
+            for (let i = 0; i < 6; i++) {
+                const angle = (Math.PI / 3) * i;
+                const hx = x + size * Math.cos(angle);
+                const hy = y + size * Math.sin(angle);
+
+                if (i === 0) {
+                    ctx.moveTo(hx, hy);
+                } else {
+                    ctx.lineTo(hx, hy);
+                }
+            }
+            ctx.closePath();
+
+            if (isFeature) {
+                // Feature hexagons have gradient fill and glow
+                const gradient = ctx.createRadialGradient(
+                    x, y, size * 0.2,
+                    x, y, size
+                );
+                gradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+                gradient.addColorStop(1, 'rgba(37, 99, 235, 0.1)');
+
+                // Add shadow for depth
+                ctx.shadowColor = 'rgba(37, 99, 235, 0.5)';
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 0;
+
+                ctx.fillStyle = gradient;
+                ctx.fill();
+
+                // Add border with better styling
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                // Reset shadow
+                ctx.shadowColor = 'transparent';
+            } else {
+                // Regular hexagons have simpler styling
+                if (Math.random() > 0.7) {
+                    // Some hexagons get a subtle fill
+                    ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
+                    ctx.fill();
+                }
+
+                // All hexagons get a border
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.3)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+
+        // Function to draw the Products Hero image
+        function drawProductsHeroImage() {
+            const canvas = document.getElementById('productsHeroCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#0f2942');
+            gradient.addColorStop(1, '#1e3a54');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add tech pattern
+            drawTechPattern(ctx, canvas.width, canvas.height);
+
+            // Add product icon
+            drawProductIcon(ctx, canvas.width / 2, canvas.height / 2, 90);
+
+            // Add title
+            ctx.font = 'bold 40px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('Products & Solutions', canvas.width / 2, canvas.height - 80);
+
+            // Add subtitle
+            ctx.font = '20px Arial';
+            ctx.fillStyle = '#aaccff';
+            ctx.fillText('Comprehensive AI Security Tools', canvas.width / 2, canvas.height - 40);
+        }
+
+        // Function to draw the Models Hero image
+        function drawModelsHeroImage() {
+            const canvas = document.getElementById('modelsHeroCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#122a3d');
+            gradient.addColorStop(1, '#203c4f');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add neural network pattern
+            drawNeuralNetworkPattern(ctx, canvas.width, canvas.height);
+
+            // Add brain icon
+            drawBrainIcon(ctx, canvas.width / 2, canvas.height / 2, 80);
+
+            // Add title
+            ctx.font = 'bold 40px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('AI Models', canvas.width / 2, canvas.height - 80);
+
+            // Add subtitle
+            ctx.font = '20px Arial';
+            ctx.fillStyle = '#aaccff';
+            ctx.fillText('Advanced Secure AI Models', canvas.width / 2, canvas.height - 40);
+        }
+
+        // Function to draw the Secure Agents blog image with enhanced styling
+        function drawSecureAgentsImage() {
+            const canvas = document.getElementById('secureAgentsCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient with more sophisticated colors
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#0a1929');
+            gradient.addColorStop(0.4, '#112a45');
+            gradient.addColorStop(0.8, '#1a2d3d');
+            gradient.addColorStop(1, '#15253a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add subtle grid pattern
+            drawGridPattern(ctx, canvas.width, canvas.height);
+
+            // Add a subtle glow in the center
+            const centerGlow = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 50,
+                canvas.width/2, canvas.height/2, 300
+            );
+            centerGlow.addColorStop(0, 'rgba(37, 99, 235, 0.15)');
+            centerGlow.addColorStop(1, 'rgba(37, 99, 235, 0)');
+            ctx.fillStyle = centerGlow;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add network nodes and connections with enhanced styling
+            drawNetworkNodes(ctx, canvas.width, canvas.height, 25, true);
+
+            // Add shield icon with glow effect
+            drawShieldWithGlow(ctx, canvas.width / 2, canvas.height / 2, 90);
+
+            // Add title with shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.font = 'bold 42px Arial, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('SecureAgents Framework', canvas.width / 2, canvas.height - 80);
+
+            // Add decorative underline
+            ctx.shadowColor = 'transparent';
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 150, canvas.height - 70);
+            ctx.lineTo(canvas.width/2 + 150, canvas.height - 70);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add subtitle with better styling
+            ctx.font = '22px Arial, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.fillText('Building Secure Multi-Agent Systems', canvas.width / 2, canvas.height - 40);
+            ctx.shadowColor = 'transparent';
+
+            // Add a subtle vignette effect for more professional look
+            const vignetteGradient = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, canvas.height * 0.5,
+                canvas.width/2, canvas.height/2, canvas.height
+            );
+            vignetteGradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+            vignetteGradient.addColorStop(1, 'rgba(0, 0, 0, 0.3)');
+            ctx.fillStyle = vignetteGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Function to draw the AI Security blog image with enhanced styling
+        function drawAISecurityImage() {
+            const canvas = document.getElementById('aiSecurityCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient with more sophisticated colors
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#1a1a2e');
+            gradient.addColorStop(0.4, '#1e2a4a');
+            gradient.addColorStop(0.8, '#16213e');
+            gradient.addColorStop(1, '#0f172a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add subtle grid pattern
+            drawGridPattern(ctx, canvas.width, canvas.height);
+
+            // Add a subtle glow in the center
+            const centerGlow = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, 50,
+                canvas.width/2, canvas.height/2, 300
+            );
+            centerGlow.addColorStop(0, 'rgba(37, 99, 235, 0.15)');
+            centerGlow.addColorStop(1, 'rgba(37, 99, 235, 0)');
+            ctx.fillStyle = centerGlow;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add enhanced circuit board pattern
+            drawEnhancedCircuitPattern(ctx, canvas.width, canvas.height);
+
+            // Add enhanced lock icon with glow effect
+            drawEnhancedLock(ctx, canvas.width / 2, canvas.height / 2, 80);
+
+            // Add title with shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+            ctx.font = 'bold 42px Arial, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('The Future of AI Security', canvas.width / 2, canvas.height - 80);
+
+            // Add decorative underline
+            ctx.shadowColor = 'transparent';
+            ctx.beginPath();
+            ctx.moveTo(canvas.width/2 - 150, canvas.height - 70);
+            ctx.lineTo(canvas.width/2 + 150, canvas.height - 70);
+            ctx.strokeStyle = '#3b82f6';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add subtitle with better styling
+            ctx.font = '22px Arial, sans-serif';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.fillText('Challenges and Solutions', canvas.width / 2, canvas.height - 40);
+            ctx.shadowColor = 'transparent';
+
+            // Add a subtle vignette effect for more professional look
+            const vignetteGradient = ctx.createRadialGradient(
+                canvas.width/2, canvas.height/2, canvas.height * 0.5,
+                canvas.width/2, canvas.height/2, canvas.height
+            );
+            vignetteGradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+            vignetteGradient.addColorStop(1, 'rgba(0, 0, 0, 0.3)');
+            ctx.fillStyle = vignetteGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Function to draw enhanced circuit pattern
+        function drawEnhancedCircuitPattern(ctx, width, height) {
+            // Draw circuit-like lines with better styling
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
+            ctx.lineWidth = 2;
+
+            // Create a more sophisticated grid
+            const gridSize = 80;
+
+            // Horizontal lines with branches
+            for (let y = gridSize/2; y < height; y += gridSize) {
+                // Add some randomness to the horizontal lines
+                const startX = Math.random() * gridSize/2;
+                const endX = width - Math.random() * gridSize/2;
+
+                ctx.beginPath();
+                ctx.moveTo(startX, y);
+                ctx.lineTo(endX, y);
+                ctx.stroke();
+
+                // Add vertical branches with better styling
+                for (let x = gridSize; x < width; x += gridSize) {
+                    if (Math.random() > 0.4) {
+                        const branchHeight = 30 + Math.random() * 50;
+                        const direction = Math.random() > 0.5 ? 1 : -1;
+
+                        // Add some curve to the branches
+                        ctx.beginPath();
+                        ctx.moveTo(x, y);
+
+                        // Some branches are curved
+                        if (Math.random() > 0.7) {
+                            const controlX = x + (Math.random() - 0.5) * 20;
+                            const controlY = y + branchHeight * direction * 0.5;
+                            ctx.quadraticCurveTo(controlX, controlY, x, y + branchHeight * direction);
+                        } else {
+                            ctx.lineTo(x, y + branchHeight * direction);
+                        }
+
+                        ctx.stroke();
+
+                        // Add connection dots with glow
+                        ctx.beginPath();
+                        ctx.arc(x, y, 4, 0, Math.PI * 2);
+
+                        // Add gradient to dots
+                        const dotGradient = ctx.createRadialGradient(
+                            x, y, 0,
+                            x, y, 6
+                        );
+                        dotGradient.addColorStop(0, 'rgba(59, 130, 246, 0.9)');
+                        dotGradient.addColorStop(1, 'rgba(59, 130, 246, 0.5)');
+
+                        ctx.fillStyle = dotGradient;
+                        ctx.fill();
+
+                        // Add subtle glow to some dots
+                        if (Math.random() > 0.7) {
+                            ctx.beginPath();
+                            ctx.arc(x, y, 8, 0, Math.PI * 2);
+                            const glowGradient = ctx.createRadialGradient(
+                                x, y, 4,
+                                x, y, 12
+                            );
+                            glowGradient.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+                            glowGradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+                            ctx.fillStyle = glowGradient;
+                            ctx.fill();
+                        }
+                    }
+                }
+            }
+
+            // Vertical lines
+            for (let x = gridSize/2; x < width; x += gridSize) {
+                // Add some randomness to the vertical lines
+                const startY = Math.random() * gridSize/2;
+                const endY = height - Math.random() * gridSize/2;
+
+                ctx.beginPath();
+                ctx.moveTo(x, startY);
+                ctx.lineTo(x, endY);
+                ctx.stroke();
+            }
+        }
+
+        // Function to draw enhanced lock icon with glow effect
+        function drawEnhancedLock(ctx, x, y, size) {
+            // Add outer glow effect
+            const outerGlowSize = size * 1.5;
+            const outerGlow = ctx.createRadialGradient(x, y, size * 0.7, x, y, outerGlowSize);
+            outerGlow.addColorStop(0, 'rgba(37, 99, 235, 0.2)');
+            outerGlow.addColorStop(0.7, 'rgba(37, 99, 235, 0.05)');
+            outerGlow.addColorStop(1, 'rgba(37, 99, 235, 0)');
+
+            ctx.fillStyle = outerGlow;
+            ctx.beginPath();
+            ctx.arc(x, y, outerGlowSize, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw the enhanced lock
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Add shadow for depth
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetX = 5;
+            ctx.shadowOffsetY = 5;
+
+            // Lock body with rounded corners
+            ctx.beginPath();
+            ctx.roundRect(-size * 0.6, -size * 0.1, size * 1.2, size * 0.9, 10);
+
+            // Fill with sophisticated gradient
+            const lockGradient = ctx.createLinearGradient(0, -size * 0.1, 0, size * 0.8);
+            lockGradient.addColorStop(0, 'rgba(37, 99, 235, 0.95)');
+            lockGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.9)');
+            lockGradient.addColorStop(1, 'rgba(30, 64, 175, 0.85)');
+            ctx.fillStyle = lockGradient;
+            ctx.fill();
+
+            // Reset shadow for border
+            ctx.shadowColor = 'transparent';
+
+            // Lock border with better styling
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Lock shackle with better styling
+            ctx.beginPath();
+            ctx.arc(0, -size * 0.1, size * 0.4, Math.PI, 0, false);
+            ctx.lineTo(size * 0.4, -size * 0.1);
+            ctx.lineTo(-size * 0.4, -size * 0.1);
+            ctx.closePath();
+            ctx.stroke();
+
+            // Add highlight to shackle
+            ctx.beginPath();
+            ctx.arc(0, -size * 0.1, size * 0.35, Math.PI, 0, false);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Keyhole with better styling
+            ctx.beginPath();
+            ctx.arc(0, size * 0.3, size * 0.15, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(10, 25, 41, 0.8)';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Add keyhole detail
+            ctx.beginPath();
+            ctx.moveTo(0, size * 0.15);
+            ctx.lineTo(0, size * 0.45);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Function to draw the AI Ethics blog image
+        function drawAIEthicsImage() {
+            const canvas = document.getElementById('aiEthicsCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#1e2a4a');
+            gradient.addColorStop(1, '#2a3a5a');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add abstract pattern
+            drawEthicsPattern(ctx, canvas.width, canvas.height);
+
+            // Add balance icon
+            drawBalanceIcon(ctx, canvas.width / 2, canvas.height / 2, 80);
+
+            // Add title
+            ctx.font = 'bold 40px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('AI Ethics & Responsibility', canvas.width / 2, canvas.height - 80);
+
+            // Add subtitle
+            ctx.font = '20px Arial';
+            ctx.fillStyle = '#aaccff';
+            ctx.fillText('Building AI with Ethical Principles', canvas.width / 2, canvas.height - 40);
+        }
+
+        // Function to draw the Future of AI blog image
+        function drawFutureAIImage() {
+            const canvas = document.getElementById('futureAICanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#0e1c38');
+            gradient.addColorStop(1, '#1e2c48');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add futuristic pattern
+            drawFuturisticPattern(ctx, canvas.width, canvas.height);
+
+            // Add future icon
+            drawFutureIcon(ctx, canvas.width / 2, canvas.height / 2, 80);
+
+            // Add title
+            ctx.font = 'bold 40px Arial';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.fillText('The Future of AI', canvas.width / 2, canvas.height - 80);
+
+            // Add subtitle
+            ctx.font = '20px Arial';
+            ctx.fillStyle = '#aaccff';
+            ctx.fillText('Trends and Predictions', canvas.width / 2, canvas.height - 40);
+        }
+
+        // Function to draw network nodes and connections with enhanced styling
+        function drawNetworkNodes(ctx, width, height, customNodeCount, enhancedStyling = false) {
+            const nodes = [];
+            const nodeCount = customNodeCount || 15;
+
+            // Create primary nodes (larger, more prominent)
+            const primaryNodeCount = Math.floor(nodeCount * 0.4);
+            for (let i = 0; i < primaryNodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: 6 + Math.random() * 8,
+                    color: `rgba(59, 130, 246, ${0.7 + Math.random() * 0.3})`,
+                    isPrimary: true,
+                    pulseSpeed: 2 + Math.random() * 3, // For animation effect
+                    pulsePhase: Math.random() * Math.PI * 2 // Random starting phase
+                });
+            }
+
+            // Create secondary nodes (smaller, less prominent)
+            for (let i = 0; i < nodeCount - primaryNodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: 2 + Math.random() * 4,
+                    color: `rgba(96, 165, 250, ${0.4 + Math.random() * 0.3})`,
+                    isPrimary: false
+                });
+            }
+
+            // Draw primary connections (between primary nodes)
+            if (enhancedStyling) {
+                // Create gradient for animated connections
+                const lineGradient = ctx.createLinearGradient(0, 0, width, 0);
+                lineGradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
+                lineGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.5)');
+                lineGradient.addColorStop(1, 'rgba(59, 130, 246, 0.1)');
+                ctx.strokeStyle = lineGradient;
+            } else {
+                ctx.strokeStyle = 'rgba(59, 130, 246, 0.4)';
+            }
+
+            ctx.lineWidth = 1.5;
+
+            // Draw connections between primary nodes
+            const primaryNodes = nodes.filter(node => node.isPrimary);
+            for (let i = 0; i < primaryNodes.length; i++) {
+                for (let j = i + 1; j < primaryNodes.length; j++) {
+                    const distance = Math.sqrt(
+                        Math.pow(primaryNodes[i].x - primaryNodes[j].x, 2) +
+                        Math.pow(primaryNodes[i].y - primaryNodes[j].y, 2)
+                    );
+
+                    if (distance < 250) {
+                        ctx.beginPath();
+                        ctx.moveTo(primaryNodes[i].x, primaryNodes[i].y);
+                        ctx.lineTo(primaryNodes[j].x, primaryNodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw secondary connections (between primary and secondary nodes)
+            ctx.strokeStyle = 'rgba(96, 165, 250, 0.2)';
+            ctx.lineWidth = 1;
+
+            const secondaryNodes = nodes.filter(node => !node.isPrimary);
+            for (const primaryNode of primaryNodes) {
+                for (const secondaryNode of secondaryNodes) {
+                    const distance = Math.sqrt(
+                        Math.pow(primaryNode.x - secondaryNode.x, 2) +
+                        Math.pow(primaryNode.y - secondaryNode.y, 2)
+                    );
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(primaryNode.x, primaryNode.y);
+                        ctx.lineTo(secondaryNode.x, secondaryNode.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw nodes with enhanced styling
+            for (const node of nodes) {
+                if (enhancedStyling && node.isPrimary) {
+                    // Draw glow effect for primary nodes
+                    const glowRadius = node.radius * 2;
+                    const glow = ctx.createRadialGradient(
+                        node.x, node.y, node.radius * 0.5,
+                        node.x, node.y, glowRadius
+                    );
+                    glow.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+                    glow.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, glowRadius, 0, Math.PI * 2);
+                    ctx.fillStyle = glow;
+                    ctx.fill();
+                }
+
+                // Draw the node itself
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                ctx.fillStyle = node.color;
+                ctx.fill();
+
+                if (enhancedStyling && node.isPrimary) {
+                    // Add subtle white border to primary nodes
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // Function to draw abstract shapes for About page with enhanced styling
+        function drawAbstractShapes(ctx, width, height, enhancedStyling = false) {
+            // Create an array to store shape positions for connecting lines
+            const shapes = [];
+
+            // Draw various abstract shapes with improved styling
+            for (let i = 0; i < (enhancedStyling ? 25 : 20); i++) {
+                const x = Math.random() * width;
+                const y = Math.random() * height;
+                const size = 20 + Math.random() * 60;
+
+                // Store shape position for connecting lines later
+                shapes.push({ x, y, size });
+
+                // More sophisticated color and opacity
+                let opacity, color;
+                if (enhancedStyling) {
+                    // Use a variety of blue shades for enhanced styling
+                    const blueShades = [
+                        'rgba(37, 99, 235, ', // Blue-600
+                        'rgba(59, 130, 246, ', // Blue-500
+                        'rgba(96, 165, 250, ', // Blue-400
+                        'rgba(147, 197, 253, ' // Blue-300
+                    ];
+                    color = blueShades[Math.floor(Math.random() * blueShades.length)];
+                    opacity = 0.1 + Math.random() * 0.4;
+                } else {
+                    color = 'rgba(30, 99, 255, ';
+                    opacity = 0.1 + Math.random() * 0.3;
+                }
+
+                // Randomly choose shape type with more variety in enhanced mode
+                const shapeType = enhancedStyling ?
+                    Math.floor(Math.random() * 5) :
+                    Math.floor(Math.random() * 3);
+
+                // Apply shadow for enhanced styling
+                if (enhancedStyling) {
+                    ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+                    ctx.shadowBlur = 10;
+                    ctx.shadowOffsetX = 2;
+                    ctx.shadowOffsetY = 2;
+                }
+
+                ctx.fillStyle = `${color}${opacity})`;
+
+                if (shapeType === 0) {
+                    // Circle with gradient in enhanced mode
+                    ctx.beginPath();
+                    ctx.arc(x, y, size / 2, 0, Math.PI * 2);
+
+                    if (enhancedStyling && Math.random() > 0.5) {
+                        // Add radial gradient for some circles
+                        const gradient = ctx.createRadialGradient(
+                            x, y, 0,
+                            x, y, size / 2
+                        );
+                        gradient.addColorStop(0, `${color}${opacity + 0.2})`);
+                        gradient.addColorStop(1, `${color}${opacity - 0.05})`);
+                        ctx.fillStyle = gradient;
+                    }
+
+                    ctx.fill();
+
+                    // Add subtle border in enhanced mode
+                    if (enhancedStyling && Math.random() > 0.7) {
+                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                } else if (shapeType === 1) {
+                    // Square with rounded corners in enhanced mode
+                    ctx.beginPath();
+                    if (enhancedStyling) {
+                        // Rounded rectangle
+                        const radius = size / 10;
+                        ctx.roundRect(x - size / 2, y - size / 2, size, size, radius);
+                    } else {
+                        ctx.rect(x - size / 2, y - size / 2, size, size);
+                    }
+                    ctx.fill();
+
+                    // Add subtle border in enhanced mode
+                    if (enhancedStyling && Math.random() > 0.7) {
+                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                } else if (shapeType === 2) {
+                    // Triangle with smoother corners in enhanced mode
+                    ctx.beginPath();
+                    ctx.moveTo(x, y - size / 2);
+                    ctx.lineTo(x + size / 2, y + size / 2);
+                    ctx.lineTo(x - size / 2, y + size / 2);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // Add subtle border in enhanced mode
+                    if (enhancedStyling) {
+                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                } else if (shapeType === 3 && enhancedStyling) {
+                    // Hexagon (only in enhanced mode)
+                    ctx.beginPath();
+                    for (let j = 0; j < 6; j++) {
+                        const angle = (Math.PI / 3) * j;
+                        const hx = x + (size / 2) * Math.cos(angle);
+                        const hy = y + (size / 2) * Math.sin(angle);
+
+                        if (j === 0) {
+                            ctx.moveTo(hx, hy);
+                        } else {
+                            ctx.lineTo(hx, hy);
+                        }
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // Add subtle border
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                } else if (shapeType === 4 && enhancedStyling) {
+                    // Diamond (only in enhanced mode)
+                    ctx.beginPath();
+                    ctx.moveTo(x, y - size / 2);
+                    ctx.lineTo(x + size / 2, y);
+                    ctx.lineTo(x, y + size / 2);
+                    ctx.lineTo(x - size / 2, y);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // Add subtle border
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+
+                // Reset shadow
+                if (enhancedStyling) {
+                    ctx.shadowColor = 'transparent';
+                }
+            }
+
+            // Add connecting lines with improved styling
+            if (enhancedStyling) {
+                // Use gradient for lines in enhanced mode
+                const lineGradient = ctx.createLinearGradient(0, 0, width, height);
+                lineGradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
+                lineGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.3)');
+                lineGradient.addColorStop(1, 'rgba(59, 130, 246, 0.1)');
+                ctx.strokeStyle = lineGradient;
+            } else {
+                ctx.strokeStyle = 'rgba(30, 99, 255, 0.2)';
+            }
+
+            ctx.lineWidth = enhancedStyling ? 1.5 : 1;
+
+            // Connect shapes that are close to each other
+            for (let i = 0; i < shapes.length; i++) {
+                for (let j = i + 1; j < shapes.length; j++) {
+                    const shape1 = shapes[i];
+                    const shape2 = shapes[j];
+
+                    const distance = Math.sqrt(
+                        Math.pow(shape1.x - shape2.x, 2) +
+                        Math.pow(shape1.y - shape2.y, 2)
+                    );
+
+                    // Only connect shapes that are reasonably close
+                    if (distance < 200) {
+                        ctx.beginPath();
+                        ctx.moveTo(shape1.x, shape1.y);
+
+                        if (enhancedStyling && Math.random() > 0.7) {
+                            // Add curved lines for some connections in enhanced mode
+                            const controlX = (shape1.x + shape2.x) / 2 + (Math.random() - 0.5) * 50;
+                            const controlY = (shape1.y + shape2.y) / 2 + (Math.random() - 0.5) * 50;
+                            ctx.quadraticCurveTo(controlX, controlY, shape2.x, shape2.y);
+                        } else {
+                            ctx.lineTo(shape2.x, shape2.y);
+                        }
+
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Function to draw hexagon pattern for SecureAgents page
+        function drawHexagonPattern(ctx, width, height) {
+            const hexSize = 40;
+            const hexHeight = hexSize * Math.sqrt(3);
+            const rows = Math.ceil(height / hexHeight) + 1;
+            const cols = Math.ceil(width / (hexSize * 1.5)) + 1;
+
+            ctx.strokeStyle = 'rgba(30, 99, 255, 0.3)';
+            ctx.lineWidth = 1;
+
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const x = col * hexSize * 1.5;
+                    const y = row * hexHeight + (col % 2 === 0 ? 0 : hexHeight / 2);
+
+                    if (Math.random() > 0.3) { // Only draw some hexagons for a sparse effect
+                        drawHexagon(ctx, x, y, hexSize);
+                    }
+                }
+            }
+        }
+
+        // Helper function to draw a hexagon
+        function drawHexagon(ctx, x, y, size) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+                const angle = (Math.PI / 3) * i;
+                const hx = x + size * Math.cos(angle);
+                const hy = y + size * Math.sin(angle);
+
+                if (i === 0) {
+                    ctx.moveTo(hx, hy);
+                } else {
+                    ctx.lineTo(hx, hy);
+                }
+            }
+            ctx.closePath();
+            ctx.stroke();
+
+            // Occasionally fill some hexagons
+            if (Math.random() > 0.7) {
+                ctx.fillStyle = 'rgba(30, 99, 255, 0.1)';
+                ctx.fill();
+            }
+        }
+
+        // Function to draw tech pattern for Products page
+        function drawTechPattern(ctx, width, height) {
+            // Draw circuit-like lines
+            ctx.strokeStyle = 'rgba(30, 99, 255, 0.3)';
+            ctx.lineWidth = 2;
+
+            // Horizontal lines with branches
+            for (let y = 50; y < height; y += 100) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+
+                // Add vertical branches
+                for (let x = 50; x < width; x += 150) {
+                    if (Math.random() > 0.5) {
+                        const branchHeight = 30 + Math.random() * 50;
+                        const direction = Math.random() > 0.5 ? 1 : -1;
+
+                        ctx.beginPath();
+                        ctx.moveTo(x, y);
+                        ctx.lineTo(x, y + branchHeight * direction);
+                        ctx.stroke();
+
+                        // Add connection dots
+                        ctx.beginPath();
+                        ctx.arc(x, y, 4, 0, Math.PI * 2);
+                        ctx.fillStyle = 'rgba(30, 99, 255, 0.7)';
+                        ctx.fill();
+                    }
+                }
+            }
+
+            // Add some diagonal lines
+            for (let i = 0; i < 10; i++) {
+                const x1 = Math.random() * width;
+                const y1 = Math.random() * height;
+                const length = 100 + Math.random() * 200;
+                const angle = Math.random() * Math.PI * 2;
+
+                const x2 = x1 + Math.cos(angle) * length;
+                const y2 = y1 + Math.sin(angle) * length;
+
+                ctx.beginPath();
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+
+                // Add connection dots
+                ctx.beginPath();
+                ctx.arc(x1, y1, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(30, 99, 255, 0.7)';
+                ctx.fill();
+            }
+        }
+
+        // Function to draw circuit board pattern
+        function drawCircuitPattern(ctx, width, height) {
+            ctx.strokeStyle = 'rgba(30, 99, 255, 0.3)';
+            ctx.lineWidth = 2;
+
+            // Horizontal lines
+            for (let y = 50; y < height; y += 100) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+
+            // Vertical lines
+            for (let x = 50; x < width; x += 100) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+
+            // Connection dots
+            ctx.fillStyle = 'rgba(30, 99, 255, 0.7)';
+            for (let x = 50; x < width; x += 100) {
+                for (let y = 50; y < height; y += 100) {
+                    ctx.beginPath();
+                    ctx.arc(x, y, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        }
+
+        // Function to draw a shield icon with professional styling
+        function drawShield(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Shield body with more professional hexagonal shape
+            ctx.beginPath();
+            ctx.moveTo(0, -size);
+            ctx.lineTo(size * 0.7, -size * 0.7);
+            ctx.lineTo(size * 0.7, size * 0.5);
+            ctx.lineTo(0, size);
+            ctx.lineTo(-size * 0.7, size * 0.5);
+            ctx.lineTo(-size * 0.7, -size * 0.7);
+            ctx.closePath();
+
+            // Fill with more sophisticated gradient
+            const shieldGradient = ctx.createLinearGradient(0, -size, 0, size);
+            shieldGradient.addColorStop(0, 'rgba(37, 99, 235, 0.95)'); // More vibrant blue
+            shieldGradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.9)');
+            shieldGradient.addColorStop(1, 'rgba(30, 64, 175, 0.85)'); // Deeper blue at bottom
+            ctx.fillStyle = shieldGradient;
+            ctx.fill();
+
+            // Add subtle inner shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 5;
+            ctx.fill();
+            ctx.shadowColor = 'transparent';
+
+            // Shield border with better styling
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add inner border for more depth
+            ctx.beginPath();
+            ctx.moveTo(0, -size * 0.85);
+            ctx.lineTo(size * 0.6, -size * 0.6);
+            ctx.lineTo(size * 0.6, size * 0.45);
+            ctx.lineTo(0, size * 0.85);
+            ctx.lineTo(-size * 0.6, size * 0.45);
+            ctx.lineTo(-size * 0.6, -size * 0.6);
+            ctx.closePath();
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Shield emblem (checkmark) with better styling
+            ctx.beginPath();
+            ctx.moveTo(-size * 0.3, 0);
+            ctx.lineTo(-size * 0.1, size * 0.3);
+            ctx.lineTo(size * 0.3, -size * 0.3);
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 6;
+            ctx.lineCap = 'round'; // Rounded ends for smoother look
+            ctx.lineJoin = 'round'; // Rounded joins for smoother look
+            ctx.stroke();
+
+            // Add subtle highlight to the checkmark
+            ctx.beginPath();
+            ctx.moveTo(-size * 0.3, 0);
+            ctx.lineTo(-size * 0.1, size * 0.3);
+            ctx.lineTo(size * 0.3, -size * 0.3);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Function to draw a lock icon
+        function drawLock(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Lock body
+            ctx.beginPath();
+            ctx.roundRect(-size * 0.6, -size * 0.1, size * 1.2, size * 0.9, 10);
+
+            // Fill with gradient
+            const lockGradient = ctx.createLinearGradient(0, -size * 0.1, 0, size * 0.8);
+            lockGradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            lockGradient.addColorStop(1, 'rgba(30, 99, 255, 0.6)');
+            ctx.fillStyle = lockGradient;
+            ctx.fill();
+
+            // Lock border
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Lock shackle
+            ctx.beginPath();
+            ctx.arc(0, -size * 0.1, size * 0.4, Math.PI, 0, false);
+            ctx.lineTo(size * 0.4, -size * 0.1);
+            ctx.lineTo(-size * 0.4, -size * 0.1);
+            ctx.closePath();
+            ctx.stroke();
+
+            // Keyhole
+            ctx.beginPath();
+            ctx.arc(0, size * 0.3, size * 0.15, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(10, 25, 41, 0.8)';
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Function to draw neural network pattern for Models page
+        function drawNeuralNetworkPattern(ctx, width, height) {
+            // Draw nodes (neurons)
+            const nodes = [];
+            const layers = 4;
+            const nodesPerLayer = [5, 8, 8, 4];
+            const layerSpacing = width / (layers + 1);
+
+            // Create nodes
+            for (let layer = 0; layer < layers; layer++) {
+                const x = layerSpacing * (layer + 1);
+                const nodeCount = nodesPerLayer[layer];
+                const nodeSpacing = height / (nodeCount + 1);
+
+                for (let i = 0; i < nodeCount; i++) {
+                    const y = nodeSpacing * (i + 1);
+                    nodes.push({
+                        x: x,
+                        y: y,
+                        layer: layer
+                    });
+                }
+            }
+
+            // Draw connections between layers
+            ctx.strokeStyle = 'rgba(30, 99, 255, 0.2)';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < nodes.length; i++) {
+                const node = nodes[i];
+
+                // Connect to next layer
+                if (node.layer < layers - 1) {
+                    for (let j = 0; j < nodes.length; j++) {
+                        const targetNode = nodes[j];
+                        if (targetNode.layer === node.layer + 1) {
+                            ctx.beginPath();
+                            ctx.moveTo(node.x, node.y);
+                            ctx.lineTo(targetNode.x, targetNode.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Draw nodes
+            for (const node of nodes) {
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 6, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(30, 99, 255, 0.7)';
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+
+        // Function to draw ethics pattern for AI Ethics blog
+        function drawEthicsPattern(ctx, width, height) {
+            // Draw connected circles representing ethical concepts
+            const concepts = [
+                { x: width * 0.3, y: height * 0.3, size: 50, label: 'Fairness' },
+                { x: width * 0.7, y: height * 0.3, size: 50, label: 'Transparency' },
+                { x: width * 0.5, y: height * 0.5, size: 60, label: 'Ethics' },
+                { x: width * 0.3, y: height * 0.7, size: 50, label: 'Privacy' },
+                { x: width * 0.7, y: height * 0.7, size: 50, label: 'Safety' }
+            ];
+
+            // Draw connections
+            ctx.strokeStyle = 'rgba(30, 99, 255, 0.3)';
+            ctx.lineWidth = 2;
+
+            for (let i = 0; i < concepts.length; i++) {
+                const concept = concepts[i];
+
+                // Connect to center
+                if (i !== 2) { // Skip the center node itself
+                    ctx.beginPath();
+                    ctx.moveTo(concept.x, concept.y);
+                    ctx.lineTo(concepts[2].x, concepts[2].y);
+                    ctx.stroke();
+                }
+            }
+
+            // Draw circles
+            for (const concept of concepts) {
+                ctx.beginPath();
+                ctx.arc(concept.x, concept.y, concept.size / 2, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(30, 99, 255, 0.2)';
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(30, 99, 255, 0.5)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Add label
+                ctx.font = 'bold 14px Arial';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.textAlign = 'center';
+                ctx.fillText(concept.label, concept.x, concept.y + 5);
+            }
+
+            // Add some background elements
+            for (let i = 0; i < 20; i++) {
+                const x = Math.random() * width;
+                const y = Math.random() * height;
+                const size = 5 + Math.random() * 15;
+
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(30, 99, 255, ${0.05 + Math.random() * 0.1})`;
+                ctx.fill();
+            }
+        }
+
+        // Function to draw futuristic pattern for Future of AI blog
+        function drawFuturisticPattern(ctx, width, height) {
+            // Draw grid of dots
+            const spacing = 40;
+            const rows = Math.ceil(height / spacing);
+            const cols = Math.ceil(width / spacing);
+
+            // Draw dots
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const x = col * spacing;
+                    const y = row * spacing;
+
+                    // Add some randomness to position
+                    const offsetX = (Math.random() - 0.5) * 10;
+                    const offsetY = (Math.random() - 0.5) * 10;
+
+                    ctx.beginPath();
+                    ctx.arc(x + offsetX, y + offsetY, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(30, 99, 255, 0.5)';
+                    ctx.fill();
+                }
+            }
+
+            // Draw some flowing lines
+            ctx.strokeStyle = 'rgba(30, 99, 255, 0.3)';
+            ctx.lineWidth = 2;
+
+            for (let i = 0; i < 5; i++) {
+                const startX = Math.random() * width;
+                const startY = Math.random() * height;
+
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+
+                // Create a flowing curve
+                let x = startX;
+                let y = startY;
+
+                for (let j = 0; j < 5; j++) {
+                    const controlX1 = x + (Math.random() - 0.5) * 200;
+                    const controlY1 = y + (Math.random() - 0.5) * 200;
+                    const controlX2 = x + (Math.random() - 0.5) * 200;
+                    const controlY2 = y + (Math.random() - 0.5) * 200;
+
+                    x = x + (Math.random() - 0.5) * 300;
+                    y = y + (Math.random() - 0.5) * 300;
+
+                    // Keep within bounds
+                    x = Math.max(0, Math.min(width, x));
+                    y = Math.max(0, Math.min(height, y));
+
+                    ctx.bezierCurveTo(controlX1, controlY1, controlX2, controlY2, x, y);
+                }
+
+                ctx.stroke();
+            }
+        }
+
+        // Function to draw a shield with enhanced glow effect
+        function drawShieldWithGlow(ctx, x, y, size) {
+            // Add outer glow effect
+            const outerGlowSize = size * 1.5;
+            const outerGlow = ctx.createRadialGradient(x, y, size * 0.7, x, y, outerGlowSize);
+            outerGlow.addColorStop(0, 'rgba(37, 99, 235, 0.2)');
+            outerGlow.addColorStop(0.7, 'rgba(37, 99, 235, 0.05)');
+            outerGlow.addColorStop(1, 'rgba(37, 99, 235, 0)');
+
+            ctx.fillStyle = outerGlow;
+            ctx.beginPath();
+            ctx.arc(x, y, outerGlowSize, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Add inner glow effect
+            const innerGlowSize = size * 1.1;
+            const innerGlow = ctx.createRadialGradient(x, y, size * 0.5, x, y, innerGlowSize);
+            innerGlow.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+            innerGlow.addColorStop(1, 'rgba(59, 130, 246, 0)');
+
+            ctx.fillStyle = innerGlow;
+            ctx.beginPath();
+            ctx.arc(x, y, innerGlowSize, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw the shield
+            drawShield(ctx, x, y, size);
+        }
+
+        // Function to draw company icon for About page
+        function drawCompanyIcon(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Draw outer circle
+            ctx.beginPath();
+            ctx.arc(0, 0, size, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Draw inner circle with gradient
+            const gradient = ctx.createRadialGradient(0, 0, size * 0.3, 0, 0, size * 0.8);
+            gradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            gradient.addColorStop(1, 'rgba(30, 99, 255, 0.4)');
+
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.8, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Draw "tbh" text
+            ctx.font = 'bold 40px Arial';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('tbh', 0, 0);
+
+            ctx.restore();
+        }
+
+        // Function to draw product icon for Products page
+        function drawProductIcon(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Draw gear shape
+            const outerRadius = size;
+            const innerRadius = size * 0.7;
+            const teethCount = 8;
+
+            ctx.beginPath();
+
+            for (let i = 0; i < teethCount * 2; i++) {
+                const angle = (Math.PI * 2 * i) / (teethCount * 2);
+                const radius = i % 2 === 0 ? outerRadius : innerRadius;
+                const px = Math.cos(angle) * radius;
+                const py = Math.sin(angle) * radius;
+
+                if (i === 0) {
+                    ctx.moveTo(px, py);
+                } else {
+                    ctx.lineTo(px, py);
+                }
+            }
+
+            ctx.closePath();
+
+            // Fill with gradient
+            const gradient = ctx.createRadialGradient(0, 0, innerRadius, 0, 0, outerRadius);
+            gradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            gradient.addColorStop(1, 'rgba(30, 99, 255, 0.5)');
+
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Draw inner circle
+            ctx.beginPath();
+            ctx.arc(0, 0, innerRadius * 0.5, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(10, 25, 41, 0.8)';
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Function to draw brain icon for Models page
+        function drawBrainIcon(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Draw brain outline
+            ctx.beginPath();
+
+            // Left hemisphere
+            ctx.moveTo(-size * 0.5, 0);
+            ctx.bezierCurveTo(
+                -size * 0.8, -size * 0.3,
+                -size * 0.7, -size * 0.7,
+                -size * 0.3, -size * 0.6
+            );
+
+            // Top connection
+            ctx.bezierCurveTo(
+                -size * 0.1, -size * 0.8,
+                size * 0.1, -size * 0.8,
+                size * 0.3, -size * 0.6
+            );
+
+            // Right hemisphere
+            ctx.bezierCurveTo(
+                size * 0.7, -size * 0.7,
+                size * 0.8, -size * 0.3,
+                size * 0.5, 0
+            );
+
+            // Bottom
+            ctx.bezierCurveTo(
+                size * 0.6, size * 0.4,
+                size * 0.3, size * 0.6,
+                0, size * 0.5
+            );
+
+            ctx.bezierCurveTo(
+                -size * 0.3, size * 0.6,
+                -size * 0.6, size * 0.4,
+                -size * 0.5, 0
+            );
+
+            // Fill with gradient
+            const gradient = ctx.createRadialGradient(0, 0, size * 0.2, 0, 0, size * 0.7);
+            gradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            gradient.addColorStop(1, 'rgba(30, 99, 255, 0.5)');
+
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Add some "neural connections"
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.lineWidth = 1;
+
+            for (let i = 0; i < 8; i++) {
+                const startX = (Math.random() - 0.5) * size * 0.8;
+                const startY = (Math.random() - 0.5) * size * 0.8;
+                const endX = (Math.random() - 0.5) * size * 0.8;
+                const endY = (Math.random() - 0.5) * size * 0.8;
+
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+                ctx.stroke();
+
+                // Add small circles at endpoints
+                ctx.beginPath();
+                ctx.arc(startX, startY, 2, 0, Math.PI * 2);
+                ctx.arc(endX, endY, 2, 0, Math.PI * 2);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+            }
+
+            ctx.restore();
+        }
+
+        // Function to draw balance icon for Ethics blog
+        function drawBalanceIcon(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Draw balance beam
+            ctx.beginPath();
+            ctx.moveTo(-size * 0.8, -size * 0.1);
+            ctx.lineTo(size * 0.8, -size * 0.1);
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.stroke();
+
+            // Draw center stand
+            ctx.beginPath();
+            ctx.moveTo(0, -size * 0.1);
+            ctx.lineTo(0, size * 0.6);
+            ctx.stroke();
+
+            // Draw base
+            ctx.beginPath();
+            ctx.moveTo(-size * 0.4, size * 0.6);
+            ctx.lineTo(size * 0.4, size * 0.6);
+            ctx.lineWidth = 8;
+            ctx.stroke();
+
+            // Draw left scale
+            ctx.beginPath();
+            ctx.arc(-size * 0.6, size * 0.2, size * 0.2, 0, Math.PI * 2);
+            const leftGradient = ctx.createRadialGradient(-size * 0.6, size * 0.2, 0, -size * 0.6, size * 0.2, size * 0.2);
+            leftGradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            leftGradient.addColorStop(1, 'rgba(30, 99, 255, 0.5)');
+            ctx.fillStyle = leftGradient;
+            ctx.fill();
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw right scale
+            ctx.beginPath();
+            ctx.arc(size * 0.6, size * 0.2, size * 0.2, 0, Math.PI * 2);
+            const rightGradient = ctx.createRadialGradient(size * 0.6, size * 0.2, 0, size * 0.6, size * 0.2, size * 0.2);
+            rightGradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            rightGradient.addColorStop(1, 'rgba(30, 99, 255, 0.5)');
+            ctx.fillStyle = rightGradient;
+            ctx.fill();
+            ctx.stroke();
+
+            // Draw strings
+            ctx.beginPath();
+            ctx.moveTo(-size * 0.6, -size * 0.1);
+            ctx.lineTo(-size * 0.6, size * 0);
+            ctx.moveTo(size * 0.6, -size * 0.1);
+            ctx.lineTo(size * 0.6, size * 0);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Function to draw future icon for Future of AI blog
+        function drawFutureIcon(ctx, x, y, size) {
+            ctx.save();
+            ctx.translate(x, y);
+
+            // Draw outer circle
+            ctx.beginPath();
+            ctx.arc(0, 0, size, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Draw inner circle with gradient
+            const gradient = ctx.createRadialGradient(0, 0, size * 0.3, 0, 0, size * 0.9);
+            gradient.addColorStop(0, 'rgba(30, 99, 255, 0.9)');
+            gradient.addColorStop(1, 'rgba(30, 99, 255, 0.4)');
+
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.9, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // Draw futuristic elements
+
+            // Central node
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.fill();
+
+            // Connecting lines
+            const lineCount = 8;
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 2;
+
+            for (let i = 0; i < lineCount; i++) {
+                const angle = (Math.PI * 2 * i) / lineCount;
+                const innerX = Math.cos(angle) * size * 0.2;
+                const innerY = Math.sin(angle) * size * 0.2;
+                const outerX = Math.cos(angle) * size * 0.7;
+                const outerY = Math.sin(angle) * size * 0.7;
+
+                ctx.beginPath();
+                ctx.moveTo(innerX, innerY);
+                ctx.lineTo(outerX, outerY);
+                ctx.stroke();
+
+                // Add small circles at endpoints
+                ctx.beginPath();
+                ctx.arc(outerX, outerY, 4, 0, Math.PI * 2);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+            }
+
+            ctx.restore();
+        }
+
+        // Function to download the canvas as an image
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/svg+xml');
+            link.click();
+        }
+
+        // Draw images when page loads
+        window.onload = function() {
+            // Draw hero images
+            drawHomeHeroImage();
+            drawAboutHeroImage();
+            drawSecureAgentsHeroImage();
+            drawProductsHeroImage();
+            drawModelsHeroImage();
+
+            // Draw blog images
+            drawSecureAgentsImage();
+            drawAISecurityImage();
+            drawAIEthicsImage();
+            drawFutureAIImage();
+        };
+    </script>
+</body>
+</html>

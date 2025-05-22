@@ -5,150 +5,259 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - tbh.ai</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/network-animation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/page-headers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Animation libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* Thank You Page Specific Styles */
+        /* Animated background styles */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .particle-1 {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            width: 60px;
+            height: 60px;
+            top: 70%;
+            left: 20%;
+            animation-delay: -2s;
+        }
+
+        .particle-3 {
+            width: 100px;
+            height: 100px;
+            top: 40%;
+            left: 80%;
+            animation-delay: -5s;
+        }
+
+        .particle-4 {
+            width: 50px;
+            height: 50px;
+            top: 80%;
+            left: 70%;
+            animation-delay: -7s;
+        }
+
+        .particle-5 {
+            width: 70px;
+            height: 70px;
+            top: 20%;
+            left: 60%;
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(0) translateX(20px);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px);
+            }
+        }
+
         .thank-you-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 40px;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
             text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem;
+            background-color: rgba(30, 35, 45, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
         }
 
         .thank-you-icon {
-            font-size: 4rem;
-            color: var(--success);
-            margin-bottom: 20px;
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
 
         .thank-you-title {
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .thank-you-message {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
             line-height: 1.6;
+            color: var(--text-secondary-dark);
         }
 
-        .thank-you-cta {
-            margin-top: 30px;
+        .back-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            background: var(--brand-gradient);
+            color: var(--brand-white);
+            border-radius: var(--border-radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
         }
 
-        .thank-you-section {
-            padding: 80px 0;
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
-                        <span class="logo-text">tbh.ai</span>
-                    </a>
-                </div>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="models.html">Models</a></li>
-                    <li><a href="secure-agents.html">Secure Agents</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-                </ul>
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.svg" alt="tbh.ai Logo" style="height: 40px;">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="secureagents.html">SecureAgents</a>
+                <a href="products.html">Products</a>
+                <a href="models.html">Models</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-primary-nav">Get Started</a>
             </div>
-        </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
     <main>
-        <!-- Thank You Section -->
-        <section class="thank-you-section">
+        <section class="hero" style="background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-purple-dark) 100%); position: relative; overflow: hidden; min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+            <!-- Animated background elements -->
+            <div class="animated-bg">
+                <div class="particle particle-1"></div>
+                <div class="particle particle-2"></div>
+                <div class="particle particle-3"></div>
+                <div class="particle particle-4"></div>
+                <div class="particle particle-5"></div>
+            </div>
             <div class="container">
-                <div class="thank-you-container">
-                    <div class="thank-you-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+                <div class="thank-you-container" data-aos="fade-up" data-aos-duration="1000">
+                    <i class="fas fa-check-circle thank-you-icon"></i>
                     <h1 class="thank-you-title">Thank You!</h1>
-                    <p class="thank-you-message">
-                        Your message has been sent successfully. We appreciate you contacting tbh.ai. 
-                        One of our team members will get back to you shortly.
-                    </p>
-                    <div class="thank-you-cta">
-                        <a href="index.html" class="btn btn-primary">Return to Home</a>
-                        <a href="products.html" class="btn btn-secondary">Explore Our Products</a>
-                    </div>
+                    <p class="thank-you-message">Your message has been successfully sent. We appreciate your interest and will get back to you as soon as possible.</p>
+                    <a href="index.html" class="back-button">Back to Home</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
-                    <span class="logo-text">tbh.ai</span>
-                    <p>Securing the AI Revolution</p>
-                    <div class="social-links">
-                        <a href="https://github.com/saishshinde15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace"><i class="fas fa-robot"></i></a>
-                        <a href="https://linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:saish.shinde.jb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h3>Company</h3>
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="careers.html">Careers</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Products</h3>
-                        <ul>
-                            <li><a href="secure-agents.html">Secure Agents</a></li>
-                            <li><a href="products.html#current-models">Current Models</a></li>
-                            <li><a href="models.html">Security Models</a></li>
-                            <li><a href="products.html#ai-guard">AI Guard</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" target="_blank">GitHub Repository</a></li>
-                            <li><a href="https://huggingface.co/TBHAI" target="_blank">HuggingFace Models</a></li>
-                        </ul>
-                    </div>
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo-bio">
+                 <a href="index.html" class="logo footer-logo">
+                    <img src="images/logo.svg" alt="tbh.ai Logo" style="height: 30px;">
+                 </a>
+                 <p class="footer-bio">Building Trustworthy Systems for the Future.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="products.html#secureagents">SecureAgents</a></li>
+                    <li><a href="products.html#llm-security">LLM Security</a></li>
+                    <li><a href="products.html#ai-red-teaming">AI Red Teaming</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:saish.shinde.jb@gmail.com">saish.shinde.jb@gmail.com</a></p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace" class="huggingface-icon">
+                        <i class="fas fa-smile-beam"></i>
+                    </a>
+                    <a href="https://github.com/tbh-ai/SecureAgents.git" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 tbh.ai. All rights reserved.</p>
-                <p class="footer-tagline">Building secure AI for a safer future</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> tbh.ai. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/direct-nav.js"></script>
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+        });
+    </script>
+    <script src="scripts/network-animation.js"></script>
 </body>
 </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional SVG Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .image-container {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #0a1929;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 0;
+            color: #0a1929;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 10px;
+        }
+        .buttons {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+        .svg-container {
+            overflow: auto;
+            margin-top: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        .section-title {
+            background-color: #0a1929;
+            color: white;
+            padding: 15px;
+            margin: 30px -20px 20px;
+            border-radius: 4px;
+        }
+        .download-all {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .download-all button {
+            background-color: #0a1929;
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Professional Website Images Generator</h1>
+    <p style="text-align: center; margin-bottom: 30px;">This tool generates professional SVG images for your website. Click on any image to download it.</p>
+    
+    <div class="download-all">
+        <button onclick="downloadAllSVGs()">Download All Images</button>
+    </div>
+    
+    <div class="image-container">
+        <h2 class="section-title">Main Page Hero Images</h2>
+        
+        <div class="image-container">
+            <h2>Home Page Hero</h2>
+            <div id="home_hero" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('home_hero', 'home_hero.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>About Page Hero</h2>
+            <div id="about_hero" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('about_hero', 'about_hero.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>SecureAgents Page Hero</h2>
+            <div id="secureagents_hero" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('secureagents_hero', 'secureagents_hero.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>Products Page Hero</h2>
+            <div id="products_hero" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('products_hero', 'products_hero.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>Models Page Hero</h2>
+            <div id="models_hero" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('models_hero', 'models_hero.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>Contact Page Hero</h2>
+            <div id="contact_hero" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('contact_hero', 'contact_hero.svg')">Download SVG</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="image-container">
+        <h2 class="section-title">Blog Post Images</h2>
+        
+        <div class="image-container">
+            <h2>Blog Post 1: SecureAgents Framework</h2>
+            <div id="blog_secure_agents" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('blog_secure_agents', 'blog-secure-agents.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>Blog Post 2: Enterprise AI Security</h2>
+            <div id="blog_ai_security" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('blog_ai_security', 'blog-ai-security.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>Blog Post 3: AI Ethics</h2>
+            <div id="blog_ai_ethics" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('blog_ai_ethics', 'blog-ai-ethics.svg')">Download SVG</button>
+            </div>
+        </div>
+        
+        <div class="image-container">
+            <h2>Blog Post 4: Future of AI</h2>
+            <div id="blog_future_ai" class="svg-container"></div>
+            <div class="buttons">
+                <button onclick="downloadSVG('blog_future_ai', 'blog-future-ai.svg')">Download SVG</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="130" height="40" viewBox="0 0 130 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern gradient background for the logo mark -->
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E63FF" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+  </defs>
+
+  <!-- Rounded rectangle with gradient -->
+  <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#logoGradient)" />
+
+  <!-- Code brackets with subtle animation effect -->
+  <g>
+    <path d="M14 15L10 20L14 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M26 15L30 20L26 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M18 28L22 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Company name with modern typography -->
+  <text x="50" y="26" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" dominant-baseline="middle">tbh.ai</text>
+</svg>
