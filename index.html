@@ -3,261 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tbh.ai - Securing the AI Revolution</title>
+    <title>tbh.ai – SecureAgents & AI Security</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/network-animation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Animation libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
-                        <span class="logo-text">tbh.ai</span>
-                    </a>
-                </div>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active" style="pointer-events: auto;">Home</a></li>
-                    <li><a href="about.html" style="pointer-events: auto;">About</a></li>
-                    <li><a href="products.html" style="pointer-events: auto;">Products</a></li>
-                    <li><a href="models.html" style="pointer-events: auto;">Models</a></li>
-                    <li><a href="secure-agents.html" style="pointer-events: auto;">Secure Agents</a></li>
-                    <li><a href="careers.html" style="pointer-events: auto;">Careers</a></li>
-                    <li><a href="contact.html" class="nav-cta" style="pointer-events: auto;">Contact Us</a></li>
-                </ul>
+    <!-- Particles background -->
+    <div id="particles-js"></div>
+
+    <!-- Scroll to top button -->
+    <a href="#" class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.svg" alt="tbh.ai Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active animated-link">Home</a>
+                <a href="about.html" class="animated-link">About</a>
+                <a href="secureagents.html" class="animated-link">SecureAgents</a>
+                <a href="products.html" class="animated-link">Products</a>
+                <a href="models.html" class="animated-link">Models</a>
+                <a href="blog.html" class="animated-link">Blog</a>
+                <a href="contact.html" class="animated-link">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="https://github.com/tbh-ai" class="btn btn-primary-nav" target="_blank">GitHub</a>
             </div>
-        </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero">
-            <div class="container">
+            <div class="container hero-container">
                 <div class="hero-content">
-                    <h1>Securing the AI Revolution</h1>
-                    <p class="hero-subtitle">Building Trustworthy Systems for the Future</p>
-                    <p class="hero-description">
-                        At tbh.ai, we are on a mission to build secure, scalable, and trustworthy AI systems for a rapidly evolving world.
-                        In an age where AI adoption is accelerating, security can no longer be an afterthought — it must be foundational.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="products.html" class="btn btn-primary">Explore Solutions</a>
-                        <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                    <h1 class="hero-title animate-slide-up">SecureAgents: Building Trustworthy AI Systems</h1>
+                    <p class="hero-subtitle animate-slide-up delay-2">tbh.ai leads the AI security revolution with SecureAgents, an open-source framework for building secure, resilient multi-agent systems. Protect your AI from threats—by design.</p>
+                    <div class="hero-cta animate-slide-up delay-3">
+                        <a href="https://github.com/tbh-ai/SecureAgents.git" class="btn btn-primary btn-animated" target="_blank">Explore SecureAgents <i class="fas fa-arrow-right"></i></a>
+                        <a href="products.html" class="btn btn-secondary">See All Products</a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="public/images/hero-image.svg" alt="AI Security Illustration">
+                <div class="hero-img animate-fade-in">
+                    <img src="images/secure_agents_hero.svg" alt="SecureAgents Illustration">
                 </div>
             </div>
         </section>
 
-        <!-- What We Do Section -->
-        <section class="what-we-do">
+        <section class="section-padding focus-section section-with-bg">
             <div class="container">
-                <div class="section-header">
-                    <h2>What We Do</h2>
-                    <p>Our comprehensive approach to AI security</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Our Mission</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">Secure this AI revolution by embedding security, trust, and resilience into every layer of AI systems—from models to agents to applications. We enable organizations to build powerful, safe, and reliable AI for the real world.</p>
+
+                <!-- Key features section -->
+                <div class="features-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-item">
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>Secure Multi-Agent Frameworks</h3>
-                        <p>Architecting agentic systems where security checkpoints, permission profiles, and output validations are built into the core structure.</p>
+                        <h3>Comprehensive Security</h3>
+                        <p>Advanced protection for AI systems with multi-layered security architecture</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-code-branch"></i>
                         </div>
-                        <h3>Security-First Model Development</h3>
-                        <p>Creating and fine-tuning large language models (LLMs) with inherent safeguards against modern threats like prompt injections, context manipulation, and unauthorized execution.</p>
+                        <h3>Open Source</h3>
+                        <p>Transparent, community-driven development with regular security updates</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas fa-shield-virus"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <h3>AI Guard Evaluation Framework <span class="dev-badge">In Development</span></h3>
-                        <p>Our upcoming modular framework will evaluate LLM security across multiple attack vectors, including prompt injection, data leakage, and role confusion.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3>Model Context Protocol Awareness</h3>
-                        <p>Designing models and agents that are resilient against MCP-based attacks and toolchain vulnerabilities, ensuring integrity even in complex ecosystems.</p>
+                        <h3>Enterprise Ready</h3>
+                        <p>Scalable solutions designed for mission-critical AI applications</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Our Models Section -->
-        <section class="our-models">
+        <section class="section-padding highlights-section" style="background-color: var(--bg-secondary-dark);">
             <div class="container">
-                <div class="section-header">
-                    <h2>Our Models</h2>
-                    <p>Security-focused AI models available on HuggingFace</p>
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Core Principles</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">Our approach to AI security is built on four foundational pillars that guide everything we do.</p>
+
+                <div class="highlights-grid">
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-shield-alt highlight-icon animate-pulse"></i>
+                        <h3>Security by Design</h3>
+                        <p>We integrate security principles from the earliest stages, making safety a core feature of every AI solution.</p>
+                    </div>
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-users highlight-icon animate-pulse"></i>
+                        <h3>Open Collaboration</h3>
+                        <p>Our frameworks are open source, and we actively contribute to the global AI security community.</p>
+                    </div>
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-flask highlight-icon animate-pulse"></i>
+                        <h3>Research Excellence</h3>
+                        <p>We stay ahead of threats with cutting-edge research, rigorous testing, and continuous innovation.</p>
+                    </div>
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-handshake highlight-icon animate-pulse"></i>
+                        <h3>Client Partnership</h3>
+                        <p>We partner closely with clients to solve unique security challenges with tailored, practical solutions.</p>
+                    </div>
                 </div>
-                <div class="model-disclaimer">
-                    <p><strong>Note:</strong> All security features in our models have been implemented and tested on a small scale using internal security datasets.</p>
-                </div>
+            </div>
+        </section>
+
+        <section class="section-padding models-section section-with-bg">
+            <div class="container">
+                <h2 class="section-title gradient-text text-center" data-aos="fade-up">Featured Models & Frameworks</h2>
+                <p class="section-intro text-center" data-aos="fade-up" data-aos-delay="100">Explore our cutting-edge AI security solutions designed to protect and enhance your AI systems.</p>
+
                 <div class="models-grid">
-                    <div class="model-card">
-                        <h3>TBH.AI Vortex Reasoning</h3>
-                        <p>Advanced reasoning model with structured thought processes.</p>
-                        <a href="https://huggingface.co/saishshinde15/TBH.AI_Vortex_Reasoning" class="btn btn-outline" target="_blank">View on HuggingFace</a>
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-brain highlight-icon"></i>
+                        <h4>TBH.AI Vortex Series</h4>
+                        <p>Advanced reasoning models for structured thought and knowledge synthesis. <a href="https://huggingface.co/TBHAI" class="animated-link huggingface-link" target="_blank">View on HuggingFace
+                            <span class="inline-hf-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+                                    <path d="M7.5 5c-.8 0-1.5.7-1.5 1.5S6.7 8 7.5 8S9 7.3 9 6.5S8.3 5 7.5 5zm9 0c-.8 0-1.5.7-1.5 1.5S15.7 8 16.5 8S18 7.3 18 6.5S17.3 5 16.5 5z"/>
+                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8c0-.4 0-.8.1-1.2c.3.2.6.4 1 .5c.2.1.4.1.6.1c.3 0 .6-.1.8-.2c.5-.2.9-.6 1.2-1.1c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.5.7.9 1.2 1.1c.2.1.5.2.8.2c.2 0 .4 0 .6-.1c.4-.1.7-.3 1-.5c.1.4.1.8.1 1.2c0 4.4-3.6 8-8 8z"/>
+                                </svg>
+                            </span>
+                        </a></p>
                     </div>
-                    <div class="model-card">
-                        <h3>TBH.AI Valhalla</h3>
-                        <p>Specialized model for knowledge synthesis and personalized responses.</p>
-                        <a href="https://huggingface.co/saishshinde15/TBH.AI_Valhala" class="btn btn-outline" target="_blank">View on HuggingFace</a>
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-robot highlight-icon"></i>
+                        <h4>Secure Multi-Agent Framework</h4>
+                        <p>Build secure, trustworthy agent systems with built-in security checkpoints and permission profiles. <a href="https://github.com/tbh-ai/SecureAgents.git" class="animated-link" target="_blank">GitHub</a></p>
                     </div>
-                    <div class="model-card">
-                        <h3>Robust Security Model <span class="beta-badge">Beta</span></h3>
-                        <p>Our upcoming model designed to address challenging security concerns in AI systems.</p>
-                        <a href="models.html" class="btn btn-outline">Learn More</a>
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-lock highlight-icon"></i>
+                        <h4>Security-First LLM Models</h4>
+                        <p>LLMs with prompt injection resistance, context boundary enforcement, and secure output filtering. <a href="https://huggingface.co/TBHAI" class="animated-link huggingface-link" target="_blank">See Models
+                            <span class="inline-hf-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+                                    <path d="M7.5 5c-.8 0-1.5.7-1.5 1.5S6.7 8 7.5 8S9 7.3 9 6.5S8.3 5 7.5 5zm9 0c-.8 0-1.5.7-1.5 1.5S15.7 8 16.5 8S18 7.3 18 6.5S17.3 5 16.5 5z"/>
+                                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8c0-.4 0-.8.1-1.2c.3.2.6.4 1 .5c.2.1.4.1.6.1c.3 0 .6-.1.8-.2c.5-.2.9-.6 1.2-1.1c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.5.7.9 1.2 1.1c.2.1.5.2.8.2c.2 0 .4 0 .6-.1c.4-.1.7-.3 1-.5c.1.4.1.8.1 1.2c0 4.4-3.6 8-8 8z"/>
+                                </svg>
+                            </span>
+                        </a></p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secure Agents Section -->
-        <section class="secure-agents">
-            <div class="container">
-                <div class="section-header">
-                    <h2>TBH.AI Secure Agents</h2>
-                    <p>Our flagship product: A comprehensive multi-agent security framework</p>
-                </div>
-                <div class="secure-agents-content">
-                    <div class="secure-agents-info">
-                        <p><strong>TBH.AI Secure Agents</strong> is our main product and a comprehensive framework for building multi-agent systems with security at their core. Our approach ensures that every agent interaction is validated, monitored, and secured against potential threats, making it ideal for organizations that prioritize security in their AI implementations.</p>
-
-                        <div class="secure-agents-features-grid">
-                            <div class="secure-feature">
-                                <div class="secure-feature-icon">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <div class="secure-feature-content">
-                                    <h4>High Security Focus</h4>
-                                    <p>Security built into every aspect of the framework, not added as an afterthought</p>
-                                </div>
-                            </div>
-                            <div class="secure-feature">
-                                <div class="secure-feature-icon">
-                                    <i class="fas fa-puzzle-piece"></i>
-                                </div>
-                                <div class="secure-feature-content">
-                                    <h4>Modular Agent Design</h4>
-                                    <p>Create specialized agents with clearly defined roles and security boundaries</p>
-                                </div>
-                            </div>
-                            <div class="secure-feature">
-                                <div class="secure-feature-icon">
-                                    <i class="fas fa-tasks"></i>
-                                </div>
-                                <div class="secure-feature-content">
-                                    <h4>Flexible Task Management</h4>
-                                    <p>Define complex workflows with security checkpoints at every stage</p>
-                                </div>
-                            </div>
-                            <div class="secure-feature">
-                                <div class="secure-feature-icon">
-                                    <i class="fas fa-comments"></i>
-                                </div>
-                                <div class="secure-feature-content">
-                                    <h4>Secure Communication</h4>
-                                    <p>Protected channels for inter-agent messaging and data exchange</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="secure-agents-cta">
-                            <a href="secure-agents.html" class="btn btn-primary">Learn More</a>
-                            <a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" class="btn btn-secondary" target="_blank">Explore on GitHub</a>
-                        </div>
-                    </div>
-                    <div class="secure-agents-image">
-                        <img src="public/images/secure-agents.svg" alt="Secure Agents Framework">
+                    <div class="model-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-tools highlight-icon"></i>
+                        <h4>AI Security Toolkit</h4>
+                        <p>Comprehensive tools for scanning, monitoring, and protecting AI applications. <a href="contact.html" class="animated-link">Join Waitlist</a></p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <div class="cta-text">
-                        <h2>Ready to Secure Your AI Systems?</h2>
-                        <p>Get in touch with our team to discuss how tbh.ai can help secure your AI infrastructure and protect against emerging threats.</p>
-                    </div>
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="btn btn-primary">Contact Us</a>
-                        <a href="products.html" class="btn btn-secondary">Explore Solutions</a>
-                    </div>
-                </div>
+        <section class="section-padding cta-section">
+            <div class="container text-center">
+                <h2 data-aos="fade-up">Ready to Secure Your AI Systems?</h2>
+                <p data-aos="fade-up" data-aos-delay="100">Contact our experts to discuss how tbh.ai can help you build secure, trustworthy AI infrastructure.</p>
+                <a href="contact.html" class="btn btn-primary btn-animated" data-aos="fade-up" data-aos-delay="200">Contact Us <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/images/logo.svg" alt="tbh.ai Logo" class="logo-img">
-                    <span class="logo-text">tbh.ai</span>
-                    <p>Securing the AI Revolution</p>
-                    <div class="social-links">
-                        <a href="https://github.com/saishshinde15" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace"><i class="fas fa-robot"></i></a>
-                        <a href="https://linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:saish.shinde.jb@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h3>Company</h3>
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="careers.html">Careers</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Products</h3>
-                        <ul>
-                            <li><a href="secure-agents.html">Secure Agents</a></li>
-                            <li><a href="products.html#current-models">Current Models</a></li>
-                            <li><a href="models.html">Security Models</a></li>
-                            <li><a href="products.html#ai-guard">AI Guard</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h3>Resources</h3>
-                        <ul>
-                            <li><a href="https://github.com/saishshinde15/TBH.AI_SecureAgents" target="_blank">GitHub Repository</a></li>
-                            <li><a href="https://huggingface.co/TBHAI" target="_blank">HuggingFace Models</a></li>
-                        </ul>
-                    </div>
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-logo-bio" data-aos="fade-up">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="images/logo.svg" alt="tbh.ai Logo">
+                </a>
+                <p class="footer-bio">Leading the AI Security Revolution with innovative frameworks and solutions for trustworthy AI systems.</p>
+                <div class="footer-social">
+                    <a href="https://github.com/tbh-ai" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://huggingface.co/TBHAI" target="_blank" aria-label="HuggingFace" class="huggingface-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+                            <path d="M7.5 5c-.8 0-1.5.7-1.5 1.5S6.7 8 7.5 8S9 7.3 9 6.5S8.3 5 7.5 5zm9 0c-.8 0-1.5.7-1.5 1.5S15.7 8 16.5 8S18 7.3 18 6.5S17.3 5 16.5 5z"/>
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8c0-.4 0-.8.1-1.2c.3.2.6.4 1 .5c.2.1.4.1.6.1c.3 0 .6-.1.8-.2c.5-.2.9-.6 1.2-1.1c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.8 1.1 1.4 2 1.4s1.7-.6 2-1.4c.3.5.7.9 1.2 1.1c.2.1.5.2.8.2c.2 0 .4 0 .6-.1c.4-.1.7-.3 1-.5c.1.4.1.8.1 1.2c0 4.4-3.6 8-8 8z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/tbh-ai" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 tbh.ai. All rights reserved.</p>
-                <p class="footer-tagline">Building secure AI for a safer future</p>
+            <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="models.html">Our Models</a>
+                <a href="blog.html">Blog</a>
             </div>
+            <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
+                <h4>Solutions</h4>
+                <a href="secureagents.html">SecureAgents</a>
+                <a href="products.html#llm-security">LLM Security</a>
+                <a href="products.html#ai-red-teaming">AI Red Teaming</a>
+                <a href="products.html#security-toolkit">Security Toolkit</a>
+            </div>
+            <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
+                <h4>Contact</h4>
+                <p>Email: <a href="mailto:saish.shinde.jb@gmail.com">saish.shinde.jb@gmail.com</a></p>
+                <a href="contact.html">Contact Form</a>
+                <a href="#">Support</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> tbh.ai. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/direct-nav.js"></script>
+    <!-- Animation libraries and scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/network-animation.js"></script>
+
+    <!-- Particles configuration -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Initialize particles
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: '#1E63FF' },
+                        shape: { type: 'circle' },
+                        opacity: { value: 0.2, random: false },
+                        size: { value: 3, random: true },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#1E63FF',
+                            opacity: 0.2,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 1,
+                            direction: 'none',
+                            random: false,
+                            straight: false,
+                            out_mode: 'out',
+                            bounce: false
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: { enable: true, mode: 'grab' },
+                            onclick: { enable: true, mode: 'push' },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                            push: { particles_nb: 4 }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scrollTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+
+            scrollTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
